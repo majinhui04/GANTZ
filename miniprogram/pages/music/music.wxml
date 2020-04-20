@@ -16,11 +16,12 @@
                     <image src="../../assets/img/jtl.png" mode="aspectFill" class="icon-player-prev"></image>
                 </view>
                 <view class="player-starter">
+              
                     <block wx:if="{{isPlay==false}}">
-                        <image src="../../assets/img/open.png" mode="aspectFill" class="icon-player-open" bindtap="play"></image>
+                        <image src="../../assets/img/open.png" mode="aspectFill" class="icon-player-open" bindtap="play" ></image>
                     </block>
                     <block wx:else>
-                        <image src="../../assets/img/over.png" mode="aspectFill" class="icon-player-open" bindtap="stop"></image>
+                        <image src="../../assets/img/over.png" mode="aspectFill" class="icon-player-open" bindtap="stop" ></image>
                     </block>
                 </view>
                 <view class="player-next">

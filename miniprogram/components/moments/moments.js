@@ -1,5 +1,5 @@
 const app = getApp();
-const qs = require('qs');
+const qs = require('../../libs/qs/index.js');
 console.log('qs', qs);
 
 // components/moments.js
@@ -65,7 +65,7 @@ Component({
         loadLazyImgChange(e) {
             // 只需查看本事件触发即可知道image 的加载情况（图片数量可以尽可能的多，触发成功过后就能知道）
             // 小程序提前加载当前屏幕和下一屏的图片,所以滚动的时候会触发。
-            console.log(e)
+            // console.log(e)
         },
         handleDetail(e) {
             var current = e.currentTarget;
@@ -97,6 +97,9 @@ Component({
                 return;
             }
             app.request({
+                    meta: {
+                        loading: true
+                    },
                     url,
                 })
                 .then((res) => {

@@ -1,5 +1,5 @@
 // app.js
-const ald = require('./utils/ald-stat.js')
+const ald = require('./utils/ald-stat.js');
 const API = require('./api');
 // 对Date的扩展，将 Date 转化为指定格式的String   
 // 月(M)、日(d)、小时(H)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符，   

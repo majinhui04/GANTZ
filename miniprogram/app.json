@@ -1,11 +1,7 @@
 {
-    "usingComponents": {
-        "van-tab": "@vant/weapp/tab/index",
-        "van-tabs": "@vant/weapp/tabs/index",
-        "van-button": "@vant/weapp/button/index"
-    },
     "pages": [
         "pages/discover/discover",
+        "pages/test/test",
         "pages/music/music",
         "pages/detail/detail",
         "pages/index/index",
@@ -14,7 +10,7 @@
         "pages/ai/camera/camera",
         "pages/result/list",
         "pages/result/commit",
-        "pages/test/test",
+
         "pages/android/qa",
         "pages/my/my"
     ],

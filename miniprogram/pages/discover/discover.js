@@ -7,15 +7,13 @@ Page({
     data: {
         active: 0
     },
-    onChange(data) {
-        const {
-            detail
-        } = data;
-        const {
-            name
-        } = detail;
-        console.log(333, detail)
-        this.selectComponent(`#moments${name}`).syncData();
+    onTabsItemTap: function (event) {
+        let index = event.currentTarget.dataset.index;
+        this.setData({
+            active: index
+        });
+        console.log(12345, index)
+        this.selectComponent(`#moments${index}`).syncData();
     },
     onLoad() {
         console.log(app.globalFn)

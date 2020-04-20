@@ -1,16 +1,25 @@
 <view class="feed-wrapper ">
-    <van-tabs active="{{ active }}" bind:change="onChange">
-        <van-tab title="颜值">
-            <moments class="list-wrapper" classify="颜值" active="{{active===0}}" id="moments0"></moments>
-        </van-tab>
-        <van-tab title="头像">
-            <moments class="list-wrapper" classify="头像" active="{{active===1}}" id="moments1"></moments>
-        </van-tab>
-        <van-tab title="壁纸">
-            <moments class="list-wrapper" classify="壁纸" active="{{active===2}}" id="moments2"></moments>
-        </van-tab>
-        <van-tab title="表情包">
-            <moments class="list-wrapper" classify="表情包" active="{{active===3}}" id="moments3"></moments>
-        </van-tab>
-    </van-tabs>
+    <view id='tabs'>
+        <view class='tabs-box'>
+            <block wx:for="{{['颜值','头像','壁纸','表情包']}}" wx:key="index">
+                <view class="tabs-item {{active == index ? 'selected' : '' }}" bindtap='onTabsItemTap' data-index='{{index}}'>
+                    {{item}}
+                </view>
+            </block>
+        </view>
+        <view class='ordert-detail'>
+            <view hidden='{{active != 0}}'>
+                <moments class="list-wrapper" classify="颜值" active="{{active===0}}" id="moments0"></moments>
+            </view>
+            <view hidden='{{active != 1}}'>
+                <moments class="list-wrapper" classify="头像" active="{{active===1}}" id="moments1"></moments>
+            </view>
+            <view hidden='{{active != 2}}'>
+                <moments class="list-wrapper" classify="壁纸" active="{{active===2}}" id="moments2"></moments>
+            </view>
+            <view hidden='{{active != 3}}'>
+                <moments class="list-wrapper" classify="表情包" active="{{active===3}}" id="moments3"></moments>
+            </view>
+        </view>
+    </view>
 </view>

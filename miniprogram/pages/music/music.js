@@ -6,6 +6,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+      canPlay:false,
         audioContext: null,
         isPlay: false,
         duration: '',
@@ -33,19 +34,24 @@ Page({
             let data = res.data || {};
             let str_readpeam = data.str_readpeam[0] || {};
             let speaker = str_readpeam.name;
+          wx.showLoading({
+            title: '载入音频中...'
+          })
             this.setData({
+              canPlay:false,
                 target: {
                     speaker,
                     content: data.str_peam_content.replace(/<br \/>/ig, '\n'),
                     authorName: data.str_autor_info,
                     title: data.str_peam_title,
-                    cover: data.str_img_url
+                    cover: data.str_img_url.replace('http://','https://')
 
                 }
             })
             console.log('title', data.str_peam_title)
             // "http:\/\/thepoemforyou.oss-cn-beijing.aliyuncs.com\/audio\/20170319\/video\/2d1f8a6889f74cffb287c2cda2245a5e.mp3"
-            this.data.audioContext.src = data.str_audio_url;
+
+          this.data.audioContext.src = data.str_audio_url.replace('http://', 'https://');
 
         }).catch(err => {
 
@@ -54,6 +60,7 @@ Page({
     handleInitAudio() {
         let audioContext = wx.createInnerAudioContext();
         audioContext.onPlay(() => {
+          wx.hideLoading();
             this.setData({
                 isPlay: true
             })
@@ -62,7 +69,8 @@ Page({
         audioContext.onPause(() => {
             this.setData({
                 isPlay: false
-            })
+            });
+            
             console.log('暂停')
         });
         audioContext.onStop(() => {
@@ -82,9 +90,13 @@ Page({
             console.log('出错了')
         });
         audioContext.onTimeUpdate(() => {
-            console.log('进度更新了总进度为：' + audioContext.duration + '当前进度为：' + audioContext.currentTime);
+           //  console.log('进度更新了总进度为：' + audioContext.duration + '当前进度为：' + audioContext.currentTime);
         })
         audioContext.onCanplay(() => {
+          wx.hideLoading();
+          this.setData({
+            canPlay:true
+          })
             // 必须。可以当做是初始化时长
             audioContext.duration;
             // 必须。不然也获取不到时长
@@ -94,7 +106,7 @@ Page({
                 let second = duration % 60;
                 console.log(audioContext.duration); // 401.475918
                 this.setData({
-                    duration: `${minute}:${second}`
+                  duration: `${minute < 10 ? '0' + minute : minute}:${second < 10?'0'+second: second}`
                 })
             }, 1000)
         })
@@ -119,10 +131,6 @@ Page({
             this.play();
         });
 
-
-        wx.setNavigationBarTitle('测试');
-
-        console.log(1, this.data.isPlay)
 
         //this.play()
     },
