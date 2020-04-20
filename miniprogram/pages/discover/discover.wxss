@@ -1,0 +1,93 @@
+.feed-wrapper {
+    height: 100%;
+}
+
+.list-wrapper {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 100rpx;
+    right: 0rpx;
+    bottom: 0;
+    height: calc(100% - 100rpx);
+    /* bottom: 44rpx; */
+}
+
+.list {
+    display: block;
+    height: 100%;
+}
+
+
+.feed-item {
+    padding: 20rpx 15rpx;
+    background-color: #FFF;
+    margin-bottom: 30rpx;
+}
+
+.feed-user-avatar {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 100%;
+}
+
+.feed-tag {
+    display: inline-block;
+    padding: 10rpx 20rpx;
+    line-height: 1;
+
+    border-radius: 24rpx;
+    background-color: #f5f5f5;
+}
+
+.feed-media {
+    position: relative;
+
+}
+
+.feed-img {
+    width: 225rpx;
+    height: 225rpx;
+    margin-right: 10rpx;
+    margin-bottom: 10rpx;
+}
+
+.feed-img-counter {
+    right: 20rpx;
+    top: 20rpx;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #FFF;
+    border-radius: 30rpx;
+    padding: 20rpx;
+}
+
+.feed-img {
+    border-radius: 20rpx;
+}
+
+.feed-poem {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    text-align: left;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    align-items: stretch;
+    border: 6rpx solid rgb(45, 46, 92);
+
+}
+
+.feed-poem-one {
+    font-family: '宋体';
+    color: #000;
+    text-align: center;
+    width: 80rpx;
+    padding-bottom: 60rpx;
+    font-size: 40rpx;
+    border-left: 1rpx solid rgb(45, 46, 92);
+
+
+}

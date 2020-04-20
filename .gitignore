@@ -1,0 +1,25 @@
+.DS_Store
+ignore
+resource
+upload
+**/resource
+**/logs
+node_modules/
+**/node_modules
+server/public/demo
+server/public/dist
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+yarn.lock
+package-lock.json
+private
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+.env.local

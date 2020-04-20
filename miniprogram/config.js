@@ -4,7 +4,7 @@
 
 // 此处主机域名修改成腾讯云解决方案分配的域名
 var host = 'http://localhost:9000'
-// var host = 'https://barebear.cn'
+var host = 'https://barebear.cn'
 
 //var host = 'http://192.168.199.113:9999';
 // 小程序的appId
@@ -32,7 +32,7 @@ var config = {
         key: 'dpjQdrUjY96eqMY4LMSJRPLh2AXGjvbE',
         appId,
         host,
-
+        prefix: '/api',
         // 登录地址，用于建立会话
         loginUrl: `${host}/openapi/user/login`,
 

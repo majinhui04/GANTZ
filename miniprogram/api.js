@@ -1,6 +1,6 @@
 var config = require('./config');
 var util = require('./utils/util.js');
-var baseUrl = config.service.host + '/openapi';
+var baseUrl = config.service.host + config.service.prefix;
 /**
  * 通用json请求
  * @param {string} options.meta.prefixUrl 假如传入了前缀(可以为空)则不使用baseUrl
@@ -8,33 +8,48 @@ var baseUrl = config.service.host + '/openapi';
  * @param {boolean} options.meta.error 是否自动显示错误信息
  * @returns {json} output value
  */
-function request(options) {
+function request(options = {}) {
     return new Promise(function (resolve, reject) {
-        var opt = options || {},
-            data = opt.data || {};
-        let uri = opt.url;
-        let method = opt.method || 'GET';
-        let url = baseUrl + uri;
-        let meta = opt.meta || {};
+        let {
+            data,
+            url,
+            method = 'GET',
+            meta = {}
+        } = options;
+        if (url.indexOf('http') === -1) {
+            url = baseUrl + url;
+        }
 
+        if (meta.loading) {
+            wx.showLoading({
+                title: '正在加载数据中.....',
+            })
+        }
 
         //data.flush =true 表示强制刷新获取
         wx.request({
-            data: data,
-            url: url,
+            data,
+            url,
             method,
             header: {
                 //设置参数内容类型为x-www-form-urlencoded
-                'content-type': 'application/x-www-form-urlencoded',
+                'content-type': 'application/json',
+                // 'content-type': 'application/x-www-form-urlencoded',
                 'Accept': 'application/json'
             },
             success: (res) => {
+                wx.hideLoading()
                 let data = res.data;
                 console.log(url, data)
                 //FunDebug.log('获取access_token', data);
                 resolve(data);
             },
             fail(err) {
+                wx.hideLoading()
+                wx.showToast({
+                    title: '数据加载失败',
+                    icon: "none"
+                })
                 reject(err);
             }
         });

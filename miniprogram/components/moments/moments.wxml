@@ -1,0 +1,35 @@
+<scroll-view scroll-top="{{scrollTop}}" bindscrolltolower="loadMoreItems" class="list" enableBackToTop="true" scrollWithAnimation="true" scrollY="{{enableScroll}}" lower-threshold="{{lowerThreshold}}">
+    <view class="feed-list">
+        <view class="feed-item" wx:for="{{dataList}}" wx:key="index" catchtap="handleDetail" data-id="{{item._id}}" data-wiki="{{item.wiki}}">
+            <view class="feed-item-head sg-flexbox align-center sg-mb-12">
+                <image class="feed-user-avatar sg-mr-12" src="{{item.author.avatar_url}}" lazy-load="true"></image>
+                <view class="feed-user-info sg-flex-1">
+                    <view class="nickname sg-font-16 sg-font-bold">{{item.author.name}}</view>
+                    <view class="time sg-color-graylight">{{item.$date}}</view>
+                </view>
+            </view>
+            <view class="feed-item-main">
+                <view class="feed-tags sg-mb-12">
+                    <view class="feed-tag">#{{item.topic.title}}</view>
+                </view>
+                <!-- <view class="feed-excerpt sg-mb-12">{{item.post.excerpt}}</view> -->
+                <view class="feed-media sg-flexbox wrap">
+                    <block wx:for="{{item.$preview_image}}" wx:for-item="img" wx:for-index="index" wx:key="index">
+                        <image catchtap="previewImage" class="feed-img" mode="aspectFit" lazy-load="true" src="{{img.url}}" data-src="{{img.origin}}" data-urls="{{item.$image}}" bindload="loadLazyImgChange"></image>
+                    </block>
+                    <view class="feed-img-counter">{{item.$image.length}}</view>
+                </view>
+            </view>
+            <view class="feed-item-foot sg-flexbox">
+                <view class="love sg-flex-1">
+                    <!-- <icon class="iconfont icon-56aixin" style="font-size:30rpx"></icon> -->
+                    <view class="icon-love">喜欢{{item.likes_count}}</view>
+                </view>
+                <view class="share">
+                    <!-- <button open-type='share'>分享</button> -->
+                    <!-- <view class="icon-share">转发</view> -->
+                </view>
+            </view>
+        </view>
+    </view>
+</scroll-view>

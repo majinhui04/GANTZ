@@ -1,0 +1,9 @@
+<view class="detail-wrapper list-wrapper">
+    <scroll-view scroll-top="{{scrollTop}}" class="list" enableBackToTop="true" scrollWithAnimation="true" scrollY="{{enableScroll}}">
+        <view class="detail-list sg-figure-list">
+            <view class="detail-item sg-figure-item" wx:for="{{dataList}}" wx:key="index" wx:for-item="img">
+                <image catchtap="previewImage" class="detail-img" mode="widthFix" lazy-load="true" src="{{img.url}}" data-src="{{img.origin}}" data-urls="{{urls}}"></image>
+            </view>
+        </view>
+    </scroll-view>
+</view>

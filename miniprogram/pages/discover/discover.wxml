@@ -1,0 +1,16 @@
+<view class="feed-wrapper ">
+    <van-tabs active="{{ active }}" bind:change="onChange">
+        <van-tab title="颜值">
+            <moments class="list-wrapper" classify="颜值" active="{{active===0}}" id="moments0"></moments>
+        </van-tab>
+        <van-tab title="头像">
+            <moments class="list-wrapper" classify="头像" active="{{active===1}}" id="moments1"></moments>
+        </van-tab>
+        <van-tab title="壁纸">
+            <moments class="list-wrapper" classify="壁纸" active="{{active===2}}" id="moments2"></moments>
+        </van-tab>
+        <van-tab title="表情包">
+            <moments class="list-wrapper" classify="表情包" active="{{active===3}}" id="moments3"></moments>
+        </van-tab>
+    </van-tabs>
+</view>

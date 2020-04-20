@@ -1,39 +1,47 @@
 {
-  "pages": [
-    "pages/index/index",
-    "pages/ai/index",
-    "pages/ai/search",
-    "pages/ai/camera/camera",
-    "pages/result/list",
-    "pages/result/commit",
-    "pages/test/test",
-   
-    "pages/android/qa"
-  ],
-  "window": {
-    "backgroundColor": "#F6F6F6",
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#00cc77",
-    "navigationBarTitleText": "智能垃圾分类",
-    "navigationBarTextStyle": "white"
+    "usingComponents": {
+        "van-tab": "@vant/weapp/tab/index",
+        "van-tabs": "@vant/weapp/tabs/index",
+        "van-button": "@vant/weapp/button/index"
     },
-  "tabBar": {
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "text": "指南",
-        "iconPath": "images/icon_sort_default.png",
-        "selectedIconPath": "images/icon_sort.png"
-      },
-     
-      
-      {
-        "pagePath": "pages/test/test",
-        "text": "答题",
-        "iconPath": "images/100.png",
-        "selectedIconPath": "images/100_active.png"
-      }
-    ]
-  },
-  "sitemapLocation": "sitemap.json"
+    "pages": [
+        "pages/discover/discover",
+        "pages/music/music",
+        "pages/detail/detail",
+        "pages/index/index",
+        "pages/ai/index",
+        "pages/ai/search",
+        "pages/ai/camera/camera",
+        "pages/result/list",
+        "pages/result/commit",
+        "pages/test/test",
+        "pages/android/qa",
+        "pages/my/my"
+    ],
+    "window": {
+        "backgroundColor": "#F6F6F6",
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#FFFFFF",
+        "navigationBarTitleText": "GANTZ",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#333333",
+        "selectedColor": "#EC5F2E",
+        "list": [
+            {
+                "pagePath": "pages/discover/discover",
+                "text": "首页",
+                "iconPath": "assets/img/icon/home-icon.png",
+                "selectedIconPath": "assets/img/icon/home-selectIcon.png"
+            },
+            {
+                "pagePath": "pages/music/music",
+                "text": "为你读诗",
+                "iconPath": "assets/img/icon/collection-icon.png",
+                "selectedIconPath": "assets/img/icon/collection-selectIcon.png"
+            }
+        ]
+    },
+    "sitemapLocation": "sitemap.json"
 }
