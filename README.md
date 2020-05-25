@@ -1,4 +1,15 @@
-# 垃圾分类小程序
+# GANTZ小程序
+一个第三方数据集合的小程序
+
+## 第三方API
+天气
+https://mpv2.weather.com.cn
+
+壁纸
+https://ztwp.ninefrost.com
+
+
+
 
 ## 扫码体验一下先
 ![QIeTf0.jpg](https://6465-dev-oto5o-1257020492.tcb.qcloud.la/wsg_qr_transcript.jpg?sign=80ca71e189ec3766a85017306b6e25ca&t=1576641377)

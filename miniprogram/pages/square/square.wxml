@@ -1,0 +1,33 @@
+<!--miniprogram/pages/square/square.wxml-->
+<posts class="post-wrapper" id="discover" bindshare="bindshare"></posts>
+<view class="post-btn" catchtap="redirect" data-path="/pages/voice-post/voice-post">
+  <image src="img/icon-post.png" class="post-btn-icon"></image>
+</view>
+<!-- 分享 -->
+<view class="share-model" wx:if="{{showShareModel}}">
+  <view class="share-model-content">
+    <view class="share-model-content-head">分享到</view>
+    <view class="share-model-content-action sg-flexbox align-center">
+      <button open-type="share" class="share-btn" catchtap="hideShareModel">
+        <image class="share-icon" src="/assets/img/icon-share-wechat.png"></image>
+        <view class="share-text">微信</view>
+      </button>
+      <button  class="share-btn" style="opacity:0">
+        <image class="share-icon" src="/assets/img/icon-share-wechat.png"></image>
+        <view class="share-text">微信</view>
+      </button>
+      <button  class="share-btn" style="opacity:0">
+        <image class="share-icon" src="/assets/img/icon-share-wechat.png"></image>
+        <view class="share-text">微信</view>
+      </button>
+      <button  class="share-btn" style="opacity:0">
+        <image class="share-icon" src="/assets/img/icon-share-wechat.png"></image>
+        <view class="share-text">微信</view>
+      </button>
+    </view>
+    <view class="share-model-content-foot">
+      <view class="share-model-cancel-btn" catchtap="hideShareModel">取消</view>
+    </view>
+  </view>
+</view>
+

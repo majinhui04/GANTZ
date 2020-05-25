@@ -1,0 +1,4 @@
+/* miniprogram/pages/works/qinghua/qinghua-detail.wxss */
+page {
+    background-color: #25234d
+}

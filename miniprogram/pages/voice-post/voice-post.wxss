@@ -1,0 +1,161 @@
+/* miniprogram/pages/voice-post/voice-post.wxss */
+page {
+    background-color: #25234d
+}
+
+.voice-post-wrap {
+    color: #FFF;
+}
+
+.voice-post-tabs {
+    padding: 0 30rpx;
+    height: 100rpx;
+}
+
+.voice-post-tab {
+    position: relative;
+    font-size: 32rpx;
+    font-weight: bolder;
+    width: 200rpx;
+    text-align: center;
+    height: 100%;
+    line-height: 100rpx;
+}
+
+.voice-post-tab.active {
+    font-size: 40rpx;
+}
+
+.voice-post-tab.active .voice-post-tab-line {
+    display: block
+}
+
+.voice-post-tab-line {
+    position: absolute;
+    width: 20rpx;
+    height: 8rpx;
+    background-color: #66c0f7;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    display: none;
+
+}
+
+.voice-post-main {
+    padding: 30rpx;
+    padding-top: 50rpx;
+}
+
+.voice-post-song-head {
+    margin-bottom: 30rpx;
+    position: relative;
+}
+
+.voice-post-song-refresh-btn {
+    right: 30rpx;
+    top: 6rpx;
+    position: absolute;
+    background-color: rgb(33, 31, 70);
+    border-radius: 50rpx;
+    color: rgba(255, 255, 255, 0.6);
+    height: 50rpx;
+    padding: 0 20rpx;
+}
+
+.voice-post-song-refresh-icon {
+    margin-right: 10rpx;
+    width: 32rpx;
+    height: 25rpx;
+}
+
+.voice-post-song-name {
+    font-size: 32rpx;
+}
+
+.voice-post-song-author {
+    font-size: 28rpx;
+    color: rgba(255, 255, 255, .6);
+}
+
+.voice-post-song-content {
+    font-size: 34rpx;
+    height: 260rpx;
+    overflow: hidden
+}
+
+/* 底部 */
+.voice-post-foot {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 60rpx;
+}
+
+.voice-post-action {
+    text-align: center;
+    color: #333;
+    width: 95%;
+    border-radius: 30rpx;
+    background-color: #FFF;
+    margin: 0 auto;
+    padding: 50rpx 30rpx;
+    height: 500rpx;
+}
+
+.voice-post-counter {
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 32rpx;
+}
+
+.voice-post-tips {
+    color: lightgray;
+}
+
+.voice-post-recording-btn {
+    width: 282rpx;
+    height: 282rpx;
+}
+
+
+.voice-post-submit {
+    padding: 0 100rpx;
+}
+
+.voice-post-cancel-icon,
+.voice-post-submit-icon {
+    margin: 0 auto;
+    width: 120rpx;
+    height: 120rpx;
+    position: relative;
+    border-radius: 50%;
+    margin-bottom: 12rpx;
+
+}
+
+.voice-post-cancel-icon {
+    background-color: rgb(33, 31, 70);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.voice-post-cancel-icon-img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.voice-post-cancel-btn {
+    width: 200rpx;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.voice-post-submit-btn {
+    width: 200rpx;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+}

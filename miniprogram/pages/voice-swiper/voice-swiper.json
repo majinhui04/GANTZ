@@ -1,0 +1,8 @@
+{
+    "navigationBarBackgroundColor": "#25234d",
+    "navigationBarTitleText": "声控",
+    "navigationBarTextStyle": "white",
+    "usingComponents": {
+        "voice-card": "/components/voice-card/voice-card"
+    }
+}

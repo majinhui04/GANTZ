@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "voice-card":"/components/voice-card/voice-card",
+    "sg-voice": "/components/sg-voice/sg-voice"
+  }
+}

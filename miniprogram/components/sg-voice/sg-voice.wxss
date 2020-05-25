@@ -1,0 +1,165 @@
+/* components/sg-voice/sg-voice.wxss */
+.gantz-voice-wrap {
+  position: relative;
+  width: 380rpx;
+  height: 100rpx;
+  background-image: linear-gradient(135deg, #ac86f7, #f570a6);
+  border-radius: 10rpx;
+  overflow: hidden;
+  padding: 0 20rpx;
+  text-align: right;
+}
+.gantz-voice-duration {
+  position: absolute;
+  right: 30rpx;
+  top:0;
+  color: #FFF;
+  font-size: 32rpx;
+  line-height: 100rpx;
+  margin-right: 20rpx;
+}
+
+
+.loader {
+  position: absolute;
+  top: 25rpx;
+  left: 20px;
+  width: 100px;
+  height: 50rpx;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  text-align: left;
+  -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.loader .loader-wave {
+  display: block;
+  background: #f1f1f1;
+  width: 3px;
+  height: 20%;
+  border-radius: 5px;
+  margin-right: 2px;
+}
+.isPlay .loader-wave:nth-child(1) {
+  animation: load 1.5s 0s infinite linear ;
+}
+.isPlay .loader-wave:nth-child(2) {
+  animation: load2 1.5s 0s infinite linear ;
+}
+.isPlay .loader-wave:nth-child(3) {
+  animation: load3 1.5s 0s infinite linear ;
+}
+.isPlay .loader-wave:nth-child(4) {
+  animation: load4 1.5s 0s infinite linear ;
+}
+.isPlay .loader-wave:nth-child(5) {
+  animation: load5 1.5s 0s infinite linear ;
+}
+.isPlay .loader-wave:nth-child(6) {
+  animation: load4 1.5s 0s infinite linear ;
+}
+.isPlay .loader-wave:nth-child(7) {
+  animation: load3 1.5s 0s infinite linear ;
+}
+.isPlay .loader-wave:nth-child(8) {
+  animation: load2 1.5s 0s infinite linear ;
+}
+.isPlay .loader-wave:nth-child(9) {
+  animation: load 1.5s 0s infinite linear ;
+}
+.loader .loader-wave:nth-child(1) {
+  height: 20%;
+}
+.loader .loader-wave:nth-child(2) {
+  height: 40%;
+}
+.loader .loader-wave:nth-child(3) {
+  height: 60%;
+}
+.loader .loader-wave:nth-child(4) {
+  height: 80%;
+}
+.loader .loader-wave:nth-child(5) {
+  height: 100%;
+}
+.loader .loader-wave:nth-child(6) {
+  height: 80%;
+}
+.loader .loader-wave:nth-child(7) {
+  height: 60%;
+}
+.loader .loader-wave:nth-child(8) {
+  height: 40%;
+}
+.loader .loader-wave:nth-child(9) {
+  height: 20%;
+}
+
+
+@keyframes load {
+  0% {
+    height: 20%;
+  }
+  50% { 
+    height: 100%; 
+  }
+  100% {
+    height: 20%;
+  }
+}
+@keyframes load2 {
+  0% {
+    height: 40%;
+  }
+  37.5% { 
+    height: 100%; 
+  }
+  87.5% {
+    height: 20%; 
+  }
+  100% {
+    height: 40%;
+  }
+}
+@keyframes load3 {
+  0% {
+    height: 60%;
+  }
+  25% { 
+    height: 100%; 
+  }
+  75% {
+    height: 20%; 
+  }
+  100% {
+    height: 60%;
+  }
+}
+@keyframes load4 {
+  0% {
+    height: 80%;
+  }
+  12.5% { 
+    height: 100%; 
+  }
+  62.5% {
+    height: 20%; 
+  }
+  100% {
+    height: 80%;
+  }
+}
+@keyframes load5 {
+  0% {
+    height: 100%;
+  }
+  50% {
+    height: 20%; 
+  }
+  100% {
+    height: 100%;
+  }
+}

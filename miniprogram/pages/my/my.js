@@ -1,18 +1,33 @@
 // miniprogram/pages/my/my.js
+const app = getApp();
 Page({
-
+  ...app.globalFn,
   /**
    * 页面的初始数据
    */
   data: {
-
+    user:null
   },
-
+  syncData(){
+    app.API.getUserInfo().then(res => {
+      this.setData({
+        user: res.data
+      })
+      console.log(res)
+    }).catch(err => {
+      console.log(err)
+    })
+  },
+  handleLogin(){
+    app.API.wxLogin().then(res=>{
+      this.syncData();
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
 
   /**
@@ -26,7 +41,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.syncData()
   },
 
   /**

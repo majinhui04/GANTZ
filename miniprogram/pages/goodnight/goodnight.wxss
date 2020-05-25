@@ -1,0 +1,54 @@
+/* miniprogram/pages/goodnight/goodnight.wxss */
+page {
+  background-color: #191E19;
+  background: url('http://assets.goodnight.whatyouneed.cc/light_images/light4(vip)/scene-lighton.png') no-repeat center center;
+  background-size: cover;
+}
+.goodnight-wrap {
+  position: relative;
+}
+.goodnight-head {
+  font-size: 32rpx;
+  padding: 30rpx;
+  color: #FFF;
+}
+.goodnight-foot {
+  font-size: 32rpx;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 10;
+}
+.audio-swiper {
+  height: 240rpx;
+  margin-bottom: 50rpx;
+}
+.audio-swiper-item {
+  width: 86% !important;
+  left: 7%;
+
+}
+.audio-item {
+  margin:0 auto;
+  width: 96%;
+  height: 120rpx;
+  border-radius: 20rpx;
+  background-color: #191E19;
+  padding: 0 20rpx;
+}
+.audio-content {
+  margin-left: 20rpx;
+}
+.audio-title {
+  font-size: 24rpx;
+  color: #F8D348;
+}
+.audio-text {
+  font-size: 24rpx;
+  color: #FFF;
+}
+.audio-btn {
+  margin-right: 30rpx;
+}

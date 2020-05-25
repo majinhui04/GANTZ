@@ -1,0 +1,26 @@
+<!--miniprogram/pages/goodnight/goodnight.wxml-->
+<view class="goodnight-wrap">
+  <view class="goodnight-head">
+    <text style="font-size:44rpx;">晚安</text><text>，陌生人</text>
+  </view>
+ 
+  <view class="goodnight-foot">
+    <swiper class="audio-swiper" circular="{{true}}" current="{{current}}" indicator-dots="{{true}}" indicator-color="rgba(255, 255, 255, 1)" indicator-active-color="#F8D348"  >
+      <swiper-item item-id="{{index}}" class="audio-swiper-item" wx:for="{{dataList}}" wx:key="index">
+        <view class="audio-item sg-flexbox align-center" catchtap="handleTogglePlay" data-index="{{index}}">
+          <view class="icon-disc"></view>
+          <view class="audio-content sg-flex-1">
+            <view class="audio-title">助眠白噪音</view>
+            <view class="audio-text">{{item.title}}</view>
+          </view>
+          
+          <view class="audio-btn" >
+  
+            <view class="icon-play" wx:if="{{!item.isPlay}}"></view>
+            <view class="icon-stop" wx:else></view>
+          </view>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>

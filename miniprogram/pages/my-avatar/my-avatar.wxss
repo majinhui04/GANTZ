@@ -1,0 +1,16 @@
+/* miniprogram/pages/my-avatar/my-avatar.wxss */
+.my-avatar-list {
+  height: 100%;
+}
+.detail-item {
+    width: 240rpx;
+    height: 240rpx;
+    overflow: hidden;
+    margin-bottom: 15rpx;
+}
+.detail-item:not(:nth-child(3n)) {
+    margin-right: calc(30rpx / 2);
+}
+.detail-img {
+    width: 100%;
+}

@@ -1,0 +1,9 @@
+<!--miniprogram/pages/my-avatar/my-avatar.wxml-->
+<scroll-view scroll-top="{{scrollTop}}" class="my-avatar-list" enableBackToTop="true" scrollWithAnimation="true" scrollY="{{true}}" >
+        <view class="sg-figure-list">
+            <view class="detail-item sg-figure-item" wx:for="{{dataList}}" wx:key="index" wx:for-item="img">
+                <image mode="widthFix" catchtap="handleSubmit" data-index="{{index}}" class="detail-img" lazy-load="true" src="{{img}}" ></image>
+            </view>
+        </view>
+    </scroll-view>
+

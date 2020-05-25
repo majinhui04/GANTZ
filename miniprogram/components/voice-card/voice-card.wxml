@@ -1,0 +1,72 @@
+<!-- components/voice-card/voice-card.wxml -->
+<view class="share-voice-card {{isPlay?'animation':''}} {{layout}}">
+    <view class="share-voice-card-main">
+        <view class="share-voice-card-content" style="background-color:{{post.color}}">
+            <view class="share-voice-card-content-head sg-flexbox align-center">
+                <view class="share-voice-type sg-flexbox align-center justify-center">{{my_type}}</view>
+                <view class="share-voice-title sg-flex-1">
+                    <view class="share-voice-songName">{{post.songName}}</view>
+                    <view class="share-voice-line" wx:if="{{post.songName}}">一</view>
+                    <view class="share-voice-singer">{{post.singerName}}</view>
+                </view>
+                <view class="share-voice-play">
+                    <block wx:if="{{isPlay}}">
+                        <image class="share-voice-play-btn" src="../../assets/img/voice/btn_3.png" mode="aspectFit" catchtap="handleTogglePlay"></image>
+                    </block>
+                    <block wx:else>
+                        <image class="share-voice-play-btn" src="../../assets/img/voice/btn_4.png" mode="aspectFit" catchtap="handleTogglePlay"></image>
+                    </block>
+                </view>
+            </view>
+            <view class="share-voice-content-main">
+                <block wx:if="{{body.type===3}}">
+                  <view class="share-voice-lyric sg-flexbox v  justify-center">
+                    <text class="share-voice-lyric-txt first {{lyrica_active==0 || lyrica_active == 2 ? 'active':''}}" style="margin-bottom:30rpx;">
+                        {{post.firstParagraph}}
+                    </text>
+                    <text class="share-voice-lyric-txt second {{lyrica_active==1 || lyrica_active == 2 ? 'active':''}}">
+                        {{post.secondParagraph}}
+                    </text>
+                </view>
+              </block>
+              <!-- 合唱 -->
+              <block wx:elif="{{body.type===9}}">
+                  <view class="share-voice-lyric sg-flexbox v justify-around">
+                    <text class="share-voice-lyric-txt active first">
+                        {{post.firstParagraph}}
+                    </text>
+                    <text class="share-voice-lyric-txt active second">
+                        {{post.secondParagraph}}
+                    </text>
+                </view>
+              </block>
+              <block wx:elif="body.type==2">
+                <view class="share-voice-free-wrap">
+                  <view class="share-voice-free-cover">
+                  </view>
+                  <image class="share-voice-free-cover-icon" src="{{body.user.avatarUrl}}"></image>
+                </view>
+              </block>
+              <!-- 背景动画 -->
+          
+                <view class="card_bg_wave_1_wrap">
+                  <!-- <image src="img/card_bg_wave_1.png" class="card_bg_wave_1" mode="heightFix"></image>
+                    <image src="img/card_bg_wave_1.png" class="card_bg_wave_1" mode="heightFix"></image> -->
+                </view>
+                <view class="card_bg_wave_3_wrap">
+                  <!-- <image src="img/card_bg_wave_3.png" class="card_bg_wave_3" mode="heightFix"></image>
+                    <image src="img/card_bg_wave_3.png" class="card_bg_wave_3" mode="heightFix"></image> -->
+                </view>
+                
+                <image src="img/card_icon_1.png" class="card_icon_1" mode="aspectFit"></image>
+                <image src="img/card_icon_2.png" class="card_icon_2" mode="aspectFit"></image> 
+                <image src="img/card_icon_3.png" class="card_icon_3" mode="aspectFit"></image> 
+                <image src="img/card_icon_4.png" class="card_icon_4" mode="aspectFit"></image>
+                <image src="img/card_icon_5.png" class="card_icon_5" mode="aspectFit"></image>   
+            
+
+            </view>
+            
+        </view>
+    </view>
+</view>

@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "sg-voice":"/components/sg-voice/sg-voice"
+  },
+  "navigationBarBackgroundColor": "#25234d",
+  "navigationBarTitleText": "发布",
+  "navigationBarTextStyle": "white"
+
+}

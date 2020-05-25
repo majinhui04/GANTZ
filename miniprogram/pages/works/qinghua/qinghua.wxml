@@ -1,0 +1,8 @@
+<!-- miniprogram/pages/works/qinghua/qinghua.wxml -->
+<view class="qinghua-wrap">
+    <view class="qinghua-list">
+        <view class="qinghua-item" wx:for="{{dataList}}" wx:key="index" catchtap="redirect" data-url="/pages/works/qinghua/qinghua-detail?chatId={{item.chatId}}">
+            {{item.title}}
+        </view>
+    </view>
+</view>

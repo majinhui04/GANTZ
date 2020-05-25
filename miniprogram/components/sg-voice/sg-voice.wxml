@@ -1,0 +1,17 @@
+<!--components/sg-voice/sg-voice.wxml-->
+<view class="gantz-voice-wrap" catchtap="handleTogglePlay">
+    <view class="loader sg-flexbox align-center {{isPlay?'isPlay':''}}">
+      <view class="loader-wave"></view>
+      <view class="loader-wave"></view>
+      <view class="loader-wave"></view>
+      <view class="loader-wave"></view>
+      <view class="loader-wave"></view>
+      <view class="loader-wave"></view>
+      <view class="loader-wave"></view>
+      <view class="loader-wave"></view>
+      <view class="loader-wave"></view> 
+    </view>
+  
+  <view class="gantz-voice-duration">{{duration}}</view>
+</view>
+

@@ -1,0 +1,100 @@
+/* miniprogram/pages/voice-swiper/voice-swiper.wxss */
+page {
+    background-color: #25234d
+}
+
+swiper {
+    width: 100%;
+    height: 100%;
+
+}
+
+swiper video {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.share-voice-post-btn {
+    position: fixed;
+    right: 30rpx;
+    top: 10rpx;
+    z-index: 30;
+    line-height: 1;
+    background-color: transparent;
+}
+
+.share-voice-post-btn-icon {
+    margin: 0 auto;
+    width: 100rpx;
+    height: 100rpx;
+    display: block;
+}
+
+.share-voice-post-btn-text {
+    font-size: 28rpx;
+    color: #FFF;
+}
+
+.voice-swiper-card {
+    width: 650rpx;
+    margin: 0 auto;
+    padding: 30rpx 0;
+}
+
+.my-share-voice-card-content {
+
+    font-size: 32rpx;
+    color: #FFF;
+    z-index: 11;
+    position: relative;
+    border-radius: 28rpx 28rpx 0 0;
+    /* background-color: #E84992; */
+    background: rgb(91, 73, 232) url('https://imguki.neoclub.cn/miaohong/outer-h5/uki-inner-h5/normal-share/sharevoice/card_bg.png?x-oss-process=image/format,png') no-repeat;
+    background-size: contain;
+    height: 600rpx;
+}
+
+
+.share-voice-card-btns {
+    padding: 0 40rpx;
+    min-height: 220rpx;
+    background-color: #FFF;
+    border-radius: 0 0 28rpx 28rpx;
+}
+
+.share-voice-user {
+    height: 150rpx;
+}
+
+.user-avatar {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 100%;
+}
+
+.user-nickname {
+    color: #fff;
+}
+
+.share-voice-card-btn {
+    line-height: 1;
+    overflow: hidden;
+    border: 0;
+}
+
+.share-voice-card-btn::after {
+    border: none;
+}
+
+.share-voice-card-btn-icon {
+    margin: 0 auto;
+    width: 140rpx;
+    height: 140rpx;
+    display: block;
+}
+
+.share-voice-card-btn-text {
+    text-align: center;
+    font-size: 28rpx;
+}

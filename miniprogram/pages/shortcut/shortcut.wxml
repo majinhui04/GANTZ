@@ -1,0 +1,41 @@
+<!--miniprogram/pages/shortcut/shortcut.wxml-->
+<view class="shortcut-wrap">
+  <view class="shortcut-list sg-flexbox justify-between wrap">
+    <view class="shortcut-item weather" style="font-size:36rpx;">
+      <view>{{weather.weatherText}}</view>
+      <view class="" style="font-size:48rpx;"> {{weather.temperature}}°</view>
+      <view class="icon-weather"></view>
+    </view>
+    <view class="shortcut-item xxqg" catchtap="redirect" data-url="/pages/voice-swiper/voice-swiper">
+      声控
+      <image class="icon-muisc" src="img/icon-music.png" style="">
+
+      </image>
+    </view>
+    <view class="shortcut-item-placeholder sg-flexbox justify-between sg-flex-1">
+      <view class="shortcut-item-column">
+        <view class="shortcut-item qinghua" catchtap="redirect" data-url="/pages/test/test">
+          垃圾测试
+          <view class="icon-1"></view>
+        </view>
+        <view class="shortcut-item emoji" catchtap="redirect" data-url="/pages/index/index">
+          垃圾分类
+          <view class="icon-1"></view>
+        </view>
+      </view>
+      <view class="shortcut-item hot" catchtap="redirect" data-url="/pages/goodnight/goodnight">
+          <text style="font-size:44rpx;">晚安</text><text>，陌生人</text>
+          <view class="icon-1"></view>
+        </view>
+    </view>
+    
+    <view class="shortcut-item x1" catchtap="redirect" data-url="/pages/music/music">
+      为你读诗
+      <view class="icon-1"></view>
+    </view>
+    <view class="shortcut-item x2" catchtap="redirect" data-url="/pages/wallpaper/wallpaper">
+      手机壁纸
+      <view class="icon-1"></view>
+    </view>
+  </view>
+</view>

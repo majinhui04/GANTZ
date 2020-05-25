@@ -1,0 +1,21 @@
+<!--miniprogram/pages/post/post.wxml-->
+
+<view class="post-head">
+<text>miniprogram/pages/post/post.wxml</text>
+</view>
+<view class="post-main">
+  <view class="record-wrap">
+    <view class="record-time">
+      00:00
+    </view>
+    <view class="record_play_btn">
+      <block wx:if="{{status===0}}">
+        <image class="icon-record" src="../../assets/img/icon/record_play.png" mode="aspectFit" catchtap="handleStart"></image>
+      </block>
+      <block wx:else>
+         <image class="icon-record" src="../../assets/img/icon/record_pause.png" mode="aspectFit" catchtap="handleStop"></image>
+      </block>
+    </view>
+  </view>
+</view>
+<view class="post-foot"></view>

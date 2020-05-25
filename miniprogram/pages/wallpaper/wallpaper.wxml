@@ -1,0 +1,11 @@
+<!--miniprogram/pages/wallpaper/wallpaper.wxml-->
+<view class="wallpaper-wrap">
+  <view class="wallpaper-list sg-flexbox wrap">
+    <view class="wallpaper-item" wx:for="{{dataList}}" wx:key="index" style="background-image:url({{item.url}})" catchtap="previewImage" data-src="{{item.$url}}" data-urls="{{urls}}">
+      <!-- <image class="wallpaper-img" src="{{item.url}}" mode="aspectFit"></image> -->
+    </view>
+  </view>
+  <view class="wallpaper-foot">
+    <button class="wallpaper-submit-btn" catchtap="handleRandom">重新随机</button>
+  </view>
+</view>

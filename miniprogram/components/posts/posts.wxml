@@ -1,0 +1,49 @@
+<view >
+    <view class="feed-list">
+        <view class="feed-item" wx:for="{{dataList}}" wx:key="index" data-id="{{item._id}}" >
+            <view class="feed-item-head sg-flexbox align-center sg-mb-12">
+                <image class="feed-user-avatar sg-mr-12" src="{{item.user.avatarUrl || '/assets/img/icon/default_head.png'}}" lazy-load="true"></image>
+                <view class="feed-user-info sg-flex-1">
+                    <view class="nickname sg-font-14 sg-color-gray">{{item.user.name}}</view>
+                    <view class="time sg-color-graylight">{{item.timestamp}}</view>
+                </view>
+            </view>
+            <view class="feed-item-main">
+                <view class="feed-excerpt sg-mb-12 sg-font-14">{{item.text}}</view>
+                <block wx:if="{{item.type===3}}">
+                  <view class="sg-flexbox align-center">
+                    <voice-card wx:key="{{item.postId}}" body="{{item}}" layout="mini" bindplay="handleOnPlay" ></voice-card>
+                    <view class="chorus-btn" catchtap="redirect" data-url="/pages/voice-chorus/voice-chorus?postId={{item.postId}}">
+                      <image class="" src="../../assets/img/voice/btn_2.png" style="width:140rpx;height:140rpx;display:block;"></image>
+                      <text class="sg-color-graylight">接唱Ta</text>
+                    </view>
+                  </view>
+                  
+                </block>
+                <block wx:elif="{{item.type===9}}">
+                  <view class="sg-flexbox align-center">
+                    <voice-card wx:key="{{item.postId}}" body="{{item}}" layout="mini" bindplay="handleOnPlay" ></voice-card>
+                    
+                  </view>
+                  
+                </block>
+                <block wx:elif="{{item.voice}}">
+                  <sg-voice wx:key="{{item.postId}}" url="{{item.voice}}" bindplay="handleOnPlay"   duration="{{item.voiceLen}}"></sg-voice>  
+                </block>
+                <view class="feed-tags sg-mb-12">
+                    <!-- <view class="feed-tag">#salsa</view> -->
+                </view>
+            </view>
+            <view class="feed-item-foot sg-flexbox">
+                <view class="share-btn sg-flexbox align-center" catchtap="share" data-id="{{item.postId}}">
+                  <image class="share-btn-icon" src="../../assets/img/icon/icon_share.png"></image>
+                  <text class="share-btn-text sg-color-graylight">分享</text>
+                </view>
+                <view class="share">
+                    <!-- <button open-type='share'>分享</button> -->
+                    <!-- <view class="icon-share">转发</view> -->
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

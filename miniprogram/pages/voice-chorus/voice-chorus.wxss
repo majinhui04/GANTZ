@@ -1,0 +1,93 @@
+/* miniprogram/pages/voice-chorus/voice-chorus.wxss */
+page {
+    background-color: #25234d
+}
+
+.voice-chorus-wrap {
+    padding: 30rpx;
+}
+
+.voice-chorus-card {
+    margin-bottom: 30rpx;
+}
+
+.voice-chorus-preview {
+  width: 650rpx;
+  margin: 0 auto;
+}
+
+/* 底部 */
+.voice-post-foot {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 60rpx;
+}
+
+.voice-post-action {
+    text-align: center;
+    color: #333;
+    width: 95%;
+    border-radius: 30rpx;
+    /* background-color: black; */
+    margin: 0 auto;
+    /* padding: 50rpx 30rpx; */
+    /* height: 500rpx; */
+}
+
+.voice-post-counter {
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 32rpx;
+}
+
+.voice-post-tips {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.voice-post-recording-btn {
+    width: 282rpx;
+    height: 282rpx;
+}
+
+
+.voice-post-submit {
+    padding: 0 100rpx;
+}
+
+.voice-post-cancel-icon,
+.voice-post-submit-icon {
+    margin: 0 auto;
+    width: 120rpx;
+    height: 120rpx;
+    position: relative;
+    border-radius: 50%;
+    margin-bottom: 12rpx;
+
+}
+
+.voice-post-cancel-icon {
+    background-color: rgb(33, 31, 70);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.voice-post-cancel-icon-img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.voice-post-cancel-btn {
+    width: 200rpx;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.voice-post-submit-btn {
+    width: 200rpx;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+}

@@ -28,6 +28,11 @@
     -webkit-justify-content: space-between;
     justify-content: space-between;
 }
+.sg-flexbox.justify-around {
+    -webkit-box-pack: space-around;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+}
 
 .sg-flexbox.justify-center {
     -webkit-box-pack: center;
@@ -106,6 +111,9 @@
     font-weight: bold;
 }
 
+.sg-color-gray {
+  color: #666;
+}
 .sg-color-graylight {
     color: #aaaaaa;
 }

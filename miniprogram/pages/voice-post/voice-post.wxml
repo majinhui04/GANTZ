@@ -1,0 +1,82 @@
+<!-- miniprogram/pages/voice-post/voice-post.wxml -->
+<view class="voice-post-wrap">
+    <!-- 顶部 -->
+    <view class="voice-post-head">
+        <view class="voice-post-tabs sg-flexbox align-center">
+            <view class="voice-post-tab {{currentTab===0?'active':''}}" catchtap="handleChangeTab" data-type="3" data-name="0">
+                <text class="voice-post-tab-text ">唱一句</text>
+                <view class="voice-post-tab-line"></view>
+            </view>
+            <view class="voice-post-tab {{currentTab===1?'active':''}}" catchtap="handleChangeTab" data-type="2" data-name="1">
+                <text class="voice-post-tab-text">自由发挥</text>
+                <view class="voice-post-tab-line"></view>
+            </view>
+        </view>
+    </view>
+    <!-- 主体 -->
+    <view class="voice-post-main">
+        <view class="voice-post-song">
+            <view class="voice-post-song-head">
+                <block wx:if="{{type==3}}">
+                    <text class="voice-post-song-name">{{song.songName}}</text>
+                    <text class="voice-post-song-author" wx:if="{{song.singerName}}">
+                        一 {{song.singerName}}
+                    </text>
+                </block>
+                <block wx:else>
+                    <text class="voice-post-song-author">试试读一下</text>
+                </block>
+                <view class="voice-post-song-refresh-btn sg-flexbox align-center" catchtap="handleRefresh">
+                    <image class="voice-post-song-refresh-icon" src="img/refresh.png"></image>
+                    <text class="voice-post-song-refresh-text">换一个</text>
+                </view>
+            </view>
+            <view class="voice-post-song-main">
+                <view class="voice-post-song-content">
+                    <text>{{text}}</text>
+                </view>
+            </view>
+        </view>
+        <!-- 音频预览 -->
+        <view class="voice-post-preview">
+            <sg-voice id="preVoice" duration="{{voice.time}}" url="{{voice.url}}" wx:if="{{voice}}"></sg-voice>
+        </view>
+    </view>
+    <!-- 底部 -->
+    <view class="voice-post-foot">
+        <!-- 准备录音 -->
+        <block wx:if="{{status===0 || status===1}}">
+            <view class="voice-post-action">
+                <view class="voice-post-counter">{{duration}}</view>
+                <view class="voice-post-tips">点击录制</view>
+                <view class="voice-post-recording">
+                    <!-- 开始录音 -->
+                    <block wx:if="{{status===0}}">
+                        <image catchtap="handleStart" class="voice-post-recording-btn" src="img/startVoice.png"></image>
+                    </block>
+                    <block wx:else>
+                        <image catchtap="handleStop" class="voice-post-recording-btn" src="img/endVoice.png"></image>
+                    </block>
+                </view>
+                <view class="voice-post-tips2">录制一段{{rule_voice[0]}}~{{rule_voice[1]}}s的录音</view>
+            </view>
+        </block>
+        <!-- 录音结束 -->
+        <block wx:else>
+            <view class="voice-post-submit sg-flexbox justify-between">
+                <view class="voice-post-cancel-btn" catchtap="handleCancel">
+                    <view class="voice-post-cancel-icon" style="width:120rpx;height:120rpx;">
+                        <image src="img/icon_refresh.png" class="voice-post-cancel-icon-img"></image>
+                    </view>
+                    <text>重新录制</text>
+                </view>
+                <view class="voice-post-submit-btn" catchtap="handleSubmit">
+                    <view class="voice-post-submit-icon">
+                        <image src="img/icon_submit.png" style="width:120rpx;height:120rpx;"></image>
+                    </view>
+                    <text>确认上传</text>
+                </view>
+            </view>
+        </block>
+    </view>
+</view>

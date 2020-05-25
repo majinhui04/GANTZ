@@ -1,43 +1,73 @@
 {
-    "pages": [
-        "pages/discover/discover",
-        "pages/test/test",
-        "pages/music/music",
-        "pages/detail/detail",
-        "pages/index/index",
-        "pages/ai/index",
-        "pages/ai/search",
-        "pages/ai/camera/camera",
-        "pages/result/list",
-        "pages/result/commit",
-
-        "pages/android/qa",
-        "pages/my/my"
-    ],
-    "window": {
-        "backgroundColor": "#F6F6F6",
-        "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#FFFFFF",
-        "navigationBarTitleText": "GANTZ",
-        "navigationBarTextStyle": "black"
-    },
-    "tabBar": {
-        "color": "#333333",
-        "selectedColor": "#EC5F2E",
-        "list": [
-            {
-                "pagePath": "pages/discover/discover",
-                "text": "首页",
-                "iconPath": "assets/img/icon/home-icon.png",
-                "selectedIconPath": "assets/img/icon/home-selectIcon.png"
-            },
-            {
-                "pagePath": "pages/music/music",
-                "text": "为你读诗",
-                "iconPath": "assets/img/icon/collection-icon.png",
-                "selectedIconPath": "assets/img/icon/collection-selectIcon.png"
-            }
-        ]
-    },
-    "sitemapLocation": "sitemap.json"
+  "requiredBackgroundModes": [
+    "audio"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "pages": [
+    "pages/square/square",
+    "pages/my/my",
+    "pages/my-info/my-info",
+    "pages/my-avatar/my-avatar",
+    
+    
+    "pages/shortcut/shortcut",
+    "pages/goodnight/goodnight",
+    "pages/music/music",
+    "pages/test/test",
+    "pages/index/index",
+    "pages/ai/search",
+    "pages/result/list",
+    "pages/wallpaper/wallpaper",
+    
+    "pages/voice-swiper/voice-swiper",
+    "pages/voice-chorus/voice-chorus",
+    "pages/works/qinghua/qinghua",
+    "pages/voice-post/voice-post",
+    "pages/voice/voice",
+    "pages/login/login",
+    "pages/discover/discover",
+    "pages/demo/demo",
+    "pages/detail/detail",
+    "pages/ai/index",
+    "pages/ai/camera/camera",
+    "pages/result/commit",
+    "pages/android/qa",
+    "pages/works/qinghua/qinghua-detail"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "GANTZ",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#333333",
+    "list": [
+      {
+        "pagePath": "pages/shortcut/shortcut",
+        "text": "首页",
+        "iconPath": "assets/img/icon/home_normal.png",
+        "selectedIconPath": "assets/img/icon/home_highlight.png"
+      },
+      {
+        "pagePath": "pages/square/square",
+        "text": "发现",
+        "iconPath": "assets/img/icon/rank_normal.png",
+        "selectedIconPath": "assets/img/icon/rank_highlight.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "assets/img/icon/my_normal.png",
+        "selectedIconPath": "assets/img/icon/my_highlight.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
 }

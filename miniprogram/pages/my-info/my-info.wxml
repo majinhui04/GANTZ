@@ -1,0 +1,22 @@
+<!--miniprogram/pages/my-info/my-info.wxml-->
+<view class="my-info-wrap">
+  <view class="my-info-list">
+    <view class="my-info-item sg-flexbox align-center" catchtap="redirect" data-url="/pages/my-avatar/my-avatar">
+      <view class="sg-flex-1">我的头像</view>
+      <view class="my-info-content">
+        <image src="{{user.avatarUrl}}" class="my-info-avatar"></image>
+      </view>
+      <view class="icon-arrow-right"></view>
+    </view>
+    <view class="my-info-item sg-flexbox align-center">
+      <view class="sg-flex-1">昵称</view>
+       <view class="my-info-content">{{user.nickname}}</view>
+      <!-- <view class="icon-arrow-right"></view> -->
+    </view>
+    <view class="my-info-item sg-flexbox align-center">
+      <view class="sg-flex-1">招呼语</view>
+       <view class="my-info-content">{{user.signature}}</view>
+      <!-- <view class="icon-arrow-right"></view> -->
+    </view>
+  </view>
+</view>

@@ -1,0 +1,10 @@
+{
+    "navigationBarBackgroundColor": "#25234d",
+    "navigationBarTitleText": "我要接唱",
+    "navigationBarTextStyle": "white",
+    "usingComponents": {
+      "voice-player": "/components/voice-player/voice-player",
+        "voice-card": "/components/voice-card/voice-card",
+        "sg-voice": "/components/sg-voice/sg-voice"
+    }
+}

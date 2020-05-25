@@ -10,7 +10,7 @@
             </view>
             <view class="title">{{target.title}}</view>
             <view class="author">作者 {{target.authorName}}</view>
-            <view class="author">朗读 {{target.speaker}} 时长 {{duration}}</view>
+            <view class="author">朗读 {{target.speaker}} 时长 {{max}}s {{starttime}}</view>
             <view class="player sg-flexbox align-center">
                 <view class="player-prev" style="opacity:0">
                     <image src="../../assets/img/jtl.png" mode="aspectFill" class="icon-player-prev"></image>

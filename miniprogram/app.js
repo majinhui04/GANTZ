@@ -1,6 +1,8 @@
 // app.js
 const ald = require('./utils/ald-stat.js');
 const API = require('./api');
+const config = require('./config.js');
+const utils = require('./utils/util.js')
 // 对Date的扩展，将 Date 转化为指定格式的String   
 // 月(M)、日(d)、小时(H)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符，   
 // 年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字)   
@@ -26,20 +28,102 @@ Date.prototype.Format = function (fmt) { //author: meizz
 }
 //app.js
 App({
+    recorderManager: wx.getRecorderManager(),
+    utils,
     API,
     request: API.request,
     onLaunch: function () {
-
+      
         if (!wx.cloud) {
             console.error('请使用 2.2.3 或以上的基础库以使用云能力')
         } else {
+          console.log(123456)
             wx.cloud.init({
                 traceUser: true,
-            })
+            });
+          API.wxLogin();
+          
         }
 
     },
     globalFn: {
+        validateVoice(data) {
+            return new Promise((resolve, reject) => {
+                let {
+                    duration
+                } = data;
+                let voice = [5, 60];
+                if (duration < voice[0] * 1000 || duration > voice[1] * 1000) {
+                    reject({
+                        message: `时长应在${voice[0]}至${voice[1]}s`
+                    })
+                } else {
+                    resolve(true);
+                }
+            })
+
+        },
+        cloudUploadVoice(res, options = {}) {
+            return new Promise((resolve, reject) => {
+                const {
+                    tempFilePath
+                } = res;
+
+                console.log('tempFilePath', tempFilePath)
+                //上传录制的音频
+                wx.cloud.uploadFile({
+                    cloudPath: "voice/" + new Date().getTime() + "-" + Math.floor(Math.random() * 1000),
+                    filePath: tempFilePath,
+                    name: 'file',
+                    success(res) {
+                        console.log(res)
+                        resolve(res)
+                    },
+                    fail(err) {
+                        console.error(err);
+                        reject(err);
+                    }
+                })
+            });
+        },
+        uploadVoice(res, options = {}) {
+            return new Promise((resolve, reject) => {
+                const {
+                    fileSize,
+                    duration,
+                    tempFilePath
+                } = res;
+                if (duration >= 60 * 1000) {
+                    throw {
+                        message: '时长不超过60s'
+                    }
+                }
+                console.log('tempFilePath', tempFilePath)
+                //上传录制的音频
+                wx.uploadFile({
+                    url: config.globalData.VoiceUploadUrl,
+                    filePath: tempFilePath,
+                    name: 'file',
+                    success(res) {
+                        let data = JSON.parse(res.data);
+                        let url = data.data;
+                        resolve(url)
+                    },
+                    fail(err) {
+                        console.error(err)
+                        reject(err);
+                    }
+                })
+            });
+        },
+        redirect(e) {
+            var path = e.currentTarget.dataset.path || e.currentTarget.dataset.url;
+            console.log('path', path)
+            wx.navigateTo({
+                url: path
+            })
+
+        },
         previewImage(e) {
             var current = e.target.dataset.src;
             var urls = e.target.dataset.urls || [current];
@@ -50,5 +134,9 @@ App({
             })
         }
     },
-    globalData: {}
+    globalData: {
+        rule_voice: [5, 60],
+        backgroundAudioManager: wx.getBackgroundAudioManager(),
+        ...config.globalData
+    }
 })

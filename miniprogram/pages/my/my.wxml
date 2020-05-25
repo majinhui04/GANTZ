@@ -1,2 +1,91 @@
 <!--miniprogram/pages/my/my.wxml-->
-<text>miniprogram/pages/my/my.wxml</text>
+<view class="my-wrap">
+  <!-- head -->
+  <view class="my-head">
+    <view class="my-head-bar"></view>
+    <view class="my-head-info sg-flexbox align-center">
+      <view class="my-head-info-side">
+        <image 
+          class="my-head-info-avatar-icon" src="{{user.avatarUrl}}"></image>
+      </view>
+      <view class="my-head-info-main">
+        <view class="my-head-info-name">
+          <text class="my-head-info-name-text">{{user.nickname}}</text>
+        </view>
+        <!-- <view class="my-head-info-star sg-flexbox align-center">
+          <image class="my-head-info-sex-icon" src="./img/girl.png" mode="aspectFit"></image>
+          <text class="">21</text>
+          <text>·</text>
+          <text>白羊座</text>
+        </view> -->
+        <view class="my-head-info-slogan">{{user.signature}}</view>
+      </view>
+
+    </view>
+    <view class="my-head-level"></view>
+  </view>
+  <!-- main -->
+  <view class="my-main">
+    <!-- <view class="my-main-bar sg-flexbox">
+      <view class="my-main-bar-item">
+        <view class="my-main-bar-item-num">0</view>
+        <view class="my-main-bar-item-title sg-color-graylight">关注</view>
+      </view>
+      <view class="my-main-bar-item">
+        <view class="my-main-bar-item-num">0</view>
+        <view class="my-main-bar-item-title sg-color-graylight">粉丝</view>
+      </view>
+    </view> -->
+    <view class="my-main-nav" style="padding-top:50rpx;">
+      <view class="my-main-nav-item sg-flexbox align-center" catchtap="redirect" data-url="/pages/my-info/my-info">
+        <image class="my-main-nav-item-icon" src="./img/icon-user.png"></image>
+        <view class="sg-flex-1 my-main-nav-item-text">个人中心</view>
+      </view>
+      <!-- <view class="my-main-nav-item sg-flexbox align-center">
+        <image class="my-main-nav-item-icon" src="./img/icon-edit.png"></image>
+        <view class="sg-flex-1 my-main-nav-item-text">修改信息</view>
+      </view> -->
+      <view class="my-main-nav-item sg-flexbox align-center">
+        <image class="my-main-nav-item-icon" src="./img/icon-author.png"></image>
+        <view class="sg-flex-1 my-main-nav-item-text">联系作者 wechat: majinhui04</view>
+      </view>
+
+    </view>
+    <!-- <view class="square-list">
+
+      <view class="my-square-item square-item">
+        <view class="square-item-line"></view>
+        <view class="square-item-side">
+          <view class="square-item-date">7</view>
+          <view class="square-item-month">5月</view>
+        </view>
+        <view class="square-item-main">
+          <view class="square-item-content sg-flexbox align-center">
+            <view class="square-item-content-text sg-flex-1">入住GANTZ</view>
+            <view class="square-item-content-time sg-color-graylight">10:29</view>
+          </view>
+
+        </view>
+      </view>
+
+      <view class="my-square-item square-item">
+        <view class="square-item-side">
+          <view class="square-item-date">7</view>
+          <view class="square-item-month">5月</view>
+        </view>
+        <view class="square-item-main">
+          <view class="square-item-content sg-flexbox align-center">
+            <view class="square-item-content-text sg-flex-1">入住GANTZ</view>
+            <view class="square-item-content-time">10:29</view>
+          </view>
+        </view>
+      </view>
+
+    </view> -->
+  </view>
+
+  <!-- foot -->
+  <view class="my-foot">
+    <button class="my-login-btn" catchtap="handleLogin" wx:if="{{!user}}">立即登录</button>
+  </view>
+</view>

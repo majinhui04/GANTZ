@@ -1,1 +1,138 @@
 /* miniprogram/pages/my/my.wxss */
+.my-wrap {
+  min-height: 100%;
+  /* background-color: rgb(244, 250, 253); */
+  background-color:#FFF;
+  
+}
+.my-head {
+  padding: 0 30rpx;
+  color: #FFF;
+  height: 300rpx;
+  background-image: linear-gradient(135deg, #ac86f7, #f570a6);
+}
+.my-head-bar {
+  height: 80rpx;
+}
+.my-head-info-side {
+  margin-right: 30rpx;
+}
+.my-head-info-avatar-icon {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+}
+.my-head-info-name {
+  margin-bottom: 14rpx;
+}
+.my-head-info-name-text {
+  font-size: 36rpx;
+}
+.my-head-info-star {
+  margin-bottom: 14rpx;
+  font-size: 20rpx;
+  height: 30rpx;
+  background-color: #f570a6;
+  line-height: 1;
+  padding: 0 8rpx;
+  border-radius: 6rpx;
+}
+.my-head-info-sex-icon {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 6rpx;
+
+}
+.my-head-info-slogan {
+  color: rgba(255, 255, 255, 0.6)
+}
+.my-main {
+  background-color: #FFF;
+  border-radius: 20rpx 20rpx 0 0;
+  margin-top:-20rpx;
+  position: relative;
+  z-index: 20;
+  min-height: 100rpx;
+}
+.my-main-bar{
+  padding: 30rpx;
+}
+.my-main-bar-item {
+  text-align: center
+}
+.my-main-bar-item-num {
+  width: 200rpx;
+  color: #000;
+  font-weight: bolder;
+  font-size: 36rpx;
+}
+.my-main-nav-item {
+  margin-bottom: 20rpx;
+  padding: 0 30rpx;
+  height: 100rpx;
+}
+.my-main-nav-item-icon {
+  width: 70rpx;
+  height: 70rpx;
+  margin-right: 40rpx;
+}
+.my-main-nav-item-text {
+  font-size: 32rpx;
+}
+
+/* ----- */
+.square-list {
+  padding: 30rpx;
+}
+.square-item {
+  position: relative;
+  margin-bottom: 20rpx;
+}
+.square-item-side {
+  position: absolute;
+  width: 80rpx;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  background-color: rgb(244, 250, 253);
+  min-height: 100rpx;
+}
+.square-item-date {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+.square-item-line {
+  left: 20rpx;
+  top: 0;
+  position: absolute;
+  z-index: 9;
+  width: 2rpx;
+  height: 100%;
+  background-color: #ddd;
+}
+.square-item-main {
+  margin-left: 80rpx;
+}
+.square-item-content {
+  background-color: #FFF;
+  border-radius: 20rpx;
+  min-height: 100rpx;
+  padding: 0 30rpx;
+  margin-bottom: 20rpx;
+}
+.square-item-content-text {
+  font-size: 28rpx;
+}
+
+.my-login-btn {
+  width: 380rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  background-image: linear-gradient(135deg, #ac86f7, #f570a6);
+  border-radius: 50rpx;
+  overflow: hidden;
+  padding: 0 20rpx;
+  text-align: center;
+  color: #FFF;
+  font-size: 32rpx;
+}

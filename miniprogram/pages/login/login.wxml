@@ -1,0 +1,37 @@
+<!--miniprogram/pages/login/login.wxml-->
+<view class="login-bg">
+  <image src="bg.png" mode="aspectFill"></image>
+</view>
+<view class="login-head">
+  <view class="login-logo"></view>
+  <view class="login-tips">
+    <view>登录后即可关注作者</view>
+    <view>发表动态</view>
+  </view>
+</view>
+<view class="login-main">
+  <view class="login-form">
+    <form>
+      <view class="login-form-field">
+        <input placeholder="请输入账号" class="login-form-input" value="{{form.username}}" bindinput="handleUsername"></input>
+      </view>
+       <view class="login-form-field">
+        <input placeholder="请输入密码" class="login-form-input" type="password" value="{{form.password}}" bindinput="handlePassword"></input>
+      </view>
+      <view class="login-form-action">
+        <button class="login-form-submit" bindtap="handleSubmit">登录</button>
+      </view>
+       <view class="login-form-action">
+        <button class="login-form-submit" bindtap="handleRegister">注册</button>
+      </view>
+      <view class="login-form-action">
+        <button class="login-form-submit" bindtap="handleUserInfo">获取用户</button>
+      </view>
+      <view class="login-form-action">
+        <button class="login-form-submit" bindtap="handleUploadImg">上传图片</button>
+      </view>
+    </form>
+   
+  </view>
+</view>
+<view class="login-foot"></view>

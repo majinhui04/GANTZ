@@ -1,0 +1,46 @@
+/* miniprogram/pages/wallpaper/wallpaper.wxss */
+page {
+  background-color: #000;
+}
+.wallpaper-wrap {
+  
+}
+.wallpaper-list {
+  padding-left: 1.866vw;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  text-align: left;
+  -webkit-box-lines: multiple;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    
+}
+.wallpaper-item {
+  background-color: #333;
+  width: 30.8444vw;
+  margin-bottom: 1.866vw;
+  margin-bottom: calc(10% / 4);
+  margin-right: 1.866vw;
+  height: 54.5777vw;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+} 
+.wallpaper-img {
+  width: 100%;
+  display: block;
+}
+.wallpaper-foot {
+  padding: 40rpx 0;
+}
+.wallpaper-submit-btn {
+  background-color: yellow;
+  color: #000;
+  font-size: 32rpx;
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+  height: 80rpx;
+  line-height: 80rpx;
+}

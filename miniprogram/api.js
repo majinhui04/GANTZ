@@ -1,6 +1,6 @@
 var config = require('./config');
 var util = require('./utils/util.js');
-var baseUrl = config.service.host + config.service.prefix;
+var baseUrl = config.globalData.host + config.globalData.prefix;
 /**
  * 通用json请求
  * @param {string} options.meta.prefixUrl 假如传入了前缀(可以为空)则不使用baseUrl
@@ -10,11 +10,13 @@ var baseUrl = config.service.host + config.service.prefix;
  */
 function request(options = {}) {
     return new Promise(function (resolve, reject) {
+        let token = wx.getStorageSync('token') || '';
         let {
             data,
-            url,
+            url = '',
             method = 'GET',
-            meta = {}
+            meta = {},
+            header = {},
         } = options;
         if (url.indexOf('http') === -1) {
             url = baseUrl + url;
@@ -32,18 +34,34 @@ function request(options = {}) {
             url,
             method,
             header: {
+                'token':token,
                 //设置参数内容类型为x-www-form-urlencoded
                 'content-type': 'application/json',
                 // 'content-type': 'application/x-www-form-urlencoded',
-                'Accept': 'application/json'
+                'Accept': 'application/json',
+              ...header
             },
             success: (res) => {
-                wx.hideLoading()
-                let data = res.data;
-                console.log(url, data)
+                let body = res.data;
+              console.log(11111, body.message,body.code, url, body)
                 //FunDebug.log('获取access_token', data);
-                resolve(data);
+                // 出错
+              if (body.code===0 || body.code===200) {
+                wx.hideLoading()
+                resolve(body);
+                
+                }
+                else {
+                  wx.showToast({
+                    title: body.message,
+                    icon: "none"
+                  })
+                  reject(body);
+                
+                }
+                
             },
+
             fail(err) {
                 wx.hideLoading()
                 wx.showToast({
@@ -51,7 +69,8 @@ function request(options = {}) {
                     icon: "none"
                 })
                 reject(err);
-            }
+            },
+          complete: function (res) { }
         });
 
     })
@@ -59,86 +78,106 @@ function request(options = {}) {
 }
 
 var API = {
+  updateUserAvatar(options = {}){
+    return request({
+      meta:{
+        loading:true
+      },
+      url: '/v1/user/avatar/update',
+      method:'post',
+      ...options
+    }).then(res => {
 
+      return res;
+
+    }).catch(err => {
+      console.log(err)
+      return Promise.reject(err);
+    })
+  },
+  getAvatarList(options = {}){
+    return request({
+      url: '/v1/avatar/list',
+      ...options
+    }).then(res => {
+      
+      return res;
+      
+    }).catch(err => {
+      console.log(err)
+      return Promise.reject(err);
+    })
+  },
+  getUserInfo(options={}){
+    return request({
+      url: '/v1/user/getInfo',
+      ...options
+    }).then(res => {
+      let {data}=res;
+      if(!data.avatarUrl) {
+        data.avatarUrl = '/assets/img/icon/default_head.png';
+      }
+      return res;
+     
+    }).catch(err => {
+      console.log(err)
+      return Promise.reject(err);
+    })
+  },
+  // 获取随机壁纸 第三方
+  wallpaperRandomFetch(options={}){
+    let url = 'https://ztwp.ninefrost.com/api/wallpaper/list?type=random&page=0&size=45';
+    return request({
+      url,
+      ...options
+    })
+
+  },
+  // 微信自动登录注册
+  wxLogin(options = {}){
+    options.url = '/v1/wx-login';
+    options.method = 'POST';
+    return new Promise((resolve,reject)=>{
+
+      // 调用登录云函数获取openid
+      wx.cloud.callFunction({
+        name: 'login', //云函数文件夹名字
+        success: function (res) {
+          let result = res.result;
+          let requestID = res.requestID;
+          let { appid, openid } = result;
+
+          console.log(2, res)
+          options.data = {
+            requestID,
+            appid,
+            openid
+          }
+          request(options).then(res => {
+            const token = res.data;
+            wx.setStorageSync('token', token)
+            resolve(res);
+          }).catch(err=>{
+            util.alert(err.message);
+            reject(err)
+          })
+        },
+        fail: function (err) {
+          util.alert(err.message);
+          console.log(err);
+          reject(err)
+        }
+      })
+    })
+    
+    
+   
+    },
     request: request,
-    getShanbei(options = {}) {
-        options.url = '/shanbei';
-        return request(options).then(res => {
-            let data = res.data;
-            if (data && data.length == 0) {
-                res.data = {
-                    list: [],
-                    season: null
-                };
-            }
-            return res;
-        })
-    },
-    getSeasonRanking(options) {
-        let opts = options || {};
-        opts.url = '/season/ranking';
-        return request(opts).then(res => {
-            let userinfo = res.data.me || {};
-
-            if (!userinfo.avatarUrl) {
-                wx.setStorageSync('hasUserInfo', 0);
-                userinfo.avatarUrl = config.userInfo.avatarUrl;
-            }
-            if (!userinfo.nickName) {
-                userinfo.nickName = config.userInfo.nickName;
-            }
-            res.data.me = userinfo;
-            return res;
-        })
-    },
-    getUserInfo(options) {
-        let opts = options || {};
-        opts.url = '/user/info';
-        return request(opts).then(res => {
-            let userinfo = res.data || {};
-
-            if (!userinfo.avatarUrl) {
-                wx.setStorageSync('hasUserInfo', 0);
-                userinfo.avatarUrl = config.userInfo.avatarUrl;
-            }
-            if (!userinfo.nickName) {
-                userinfo.nickName = config.userInfo.nickName;
-            }
-            wx.setStorageSync('user_info_F2C224D4-2BCE-4C64-AF9F-A6D872000D1A', userinfo);
-
-            return res;
-        })
-    },
-    login(options) {
-        return new Promise(function (resolve, reject) {
-            let opt = options || {},
-                data = opt.data || {};
-            let meta = opt.meta || {};
-            let $loading = meta.$loading || opt.$loading;
-
-            if ($loading) {
-                util.showBusy(typeof $loading === 'string' ? $loading : '正在加载')
-            }
-            qcloud.login({
-                success(userinfo) {
-                    if (!userinfo.avatarUrl) {
-                        userinfo.avatarUrl = config.userInfo.avatarUrl;
-                    }
-                    if (!userinfo.nickName) {
-                        userinfo.nickName = config.userInfo.nickName;
-                    }
-                    resolve(userinfo);
-                    $loading && wx.hideToast();
-                },
-                fail(err) {
-                    reject(err);
-                    $loading && wx.hideToast();
-                    util.alert('网络走神了')
-                }
-            });
-
-        });
-    },
+    
+    
+    
+    
     loginWithCode(options) {
         return new Promise(function (resolve, reject) {
             let opt = options || {},
