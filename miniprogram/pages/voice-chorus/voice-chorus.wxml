@@ -8,7 +8,7 @@
     </view>
     <!-- 底部提交 -->
     <!-- 底部 -->
-    <view class="voice-post-foot" wx:if="{{post.type==3}}">
+    <view class="voice-post-foot" wx:if="{{post.type==111113}}">
         <!-- 准备录音 -->
         <block wx:if="{{status===0 || status===1}}">
             <view class="voice-post-action">

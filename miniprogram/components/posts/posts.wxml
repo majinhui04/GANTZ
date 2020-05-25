@@ -13,10 +13,10 @@
                 <block wx:if="{{item.type===3}}">
                   <view class="sg-flexbox align-center">
                     <voice-card wx:key="{{item.postId}}" body="{{item}}" layout="mini" bindplay="handleOnPlay" ></voice-card>
-                    <view class="chorus-btn" catchtap="redirect" data-url="/pages/voice-chorus/voice-chorus?postId={{item.postId}}">
+                    <!-- <view class="chorus-btn" catchtap="redirect" data-url="/pages/voice-chorus/voice-chorus?postId={{item.postId}}">
                       <image class="" src="../../assets/img/voice/btn_2.png" style="width:140rpx;height:140rpx;display:block;"></image>
                       <text class="sg-color-graylight">接唱Ta</text>
-                    </view>
+                    </view> -->
                   </view>
                   
                 </block>

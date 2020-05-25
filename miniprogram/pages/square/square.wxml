@@ -1,8 +1,8 @@
 <!--miniprogram/pages/square/square.wxml-->
 <posts class="post-wrapper" id="discover" bindshare="bindshare"></posts>
-<view class="post-btn" catchtap="redirect" data-path="/pages/voice-post/voice-post">
+<!-- <view class="post-btn" catchtap="redirect" data-path="/pages/voice-post/voice-post">
   <image src="img/icon-post.png" class="post-btn-icon"></image>
-</view>
+</view> -->
 <!-- 分享 -->
 <view class="share-model" wx:if="{{showShareModel}}">
   <view class="share-model-content">
