@@ -148,6 +148,11 @@ Page({
    
     // 重新录音
     handleCancel() {
+      try {
+        this.selectComponent('#preVoice').stop();
+      } catch (err) {
+
+      }
         this.setData({
             status: 0,
             duration: '00:00',

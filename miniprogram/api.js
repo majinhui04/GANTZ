@@ -53,7 +53,7 @@ function request(options = {}) {
                 }
                 else {
                   wx.showToast({
-                    title: body.message,
+                    title: body.message || '服务器走神了',
                     icon: "none"
                   })
                   reject(body);
