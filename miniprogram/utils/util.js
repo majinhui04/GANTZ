@@ -253,6 +253,27 @@ function realFormatSecond(second) {
   }
 }
 module.exports = {
+  // 1989-12-14
+  getAge: function (t) {
+    var e = new Date(t)
+      , n = e.getFullYear()
+      , a = e.getMonth() + 1
+      , i = e.getDate()
+      , o = new Date
+      , s = o.getFullYear()
+      , r = o.getMonth() + 1
+      , l = o.getDate();
+    if (s == n)
+      return 0;
+    var c = s - n;
+    return c > 0 ? r == a ? l - i < 0 ? c - 1 : c : r - a < 0 ? c - 1 : c : 0
+  },
+  // new Date().valueOf()/1000
+  getCreatedTime: function (t) {
+    var e = parseInt(t)
+      , n = parseInt((new Date).getTime() / 1e3) - e;
+    return n < 60 ? n + "秒前" : n < 3600 ? parseInt(n / 60) + "分钟前" : n < 86400 ? parseInt(n / 3600) + "小时前" : parseInt(n / 86400) + "天前"
+  },
   realFormatSecond,
   timeago,
     showBusy,

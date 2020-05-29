@@ -1,0 +1,101 @@
+<!--miniprogram/pages/wallpaper/wallpaper-index/wallpaper-index.wxml-->
+
+<view class="wallpaper-index-wrap">
+
+  <!-- 精选壁纸 -->
+  <view class="wallpaper-index-block">
+    <view class="wallpaper-block-head">
+      <view class="wallpaper-block-headline">
+        <text class="title">精选壁纸</text>
+        <text class="subtitle">/每日更新</text>
+      </view>
+      <view class="wallpaper-block-action">
+        <text class="link" catchtap="redirect" data-path="/pages/wallpaper/list/list" data-api="https://ztwp.ninefrost.com/api/home/page/choice/list">全部精选</text>
+      </view>
+    </view>
+    <view class="wallpaper-index-block-main">
+      <scroll-view class="wallpaper-scroll-view" scrollX="{{true}}" scrollY="{{false}}" scroll-with-animation="{{true}}">
+          <view class="wallpaper-index-item" wx:for="{{mrjx_wallpapers}}" wx:key="index" style="background-image:url({{item.url}})" catchtap="previewImage" data-src="{{item.url}}"></view>
+      
+      </scroll-view>
+    </view>
+    <!-- 猜你喜欢 -->
+    <view class="wallpaper-index-block">
+      <view class="wallpaper-block-head">
+        <view class="wallpaper-block-headline">
+          <text class="title">猜你喜欢</text>
+          <text class="subtitle"></text>
+        </view>
+        <view class="wallpaper-block-action">
+          <text class="link" catchtap="redirect" data-path="/pages/wallpaper/list/list" data-api="https://ztwp.ninefrost.com/api/wallpaper/list">全部壁纸</text>
+        </view>
+      </view>
+      <view class="wallpaper-index-block-main">
+        <scroll-view class="wallpaper-scroll-view" scrollX="{{true}}" scrollY="{{false}}" scroll-with-animation="{{true}}">
+            <view class="wallpaper-index-item" wx:for="{{rwallpapers}}" wx:key="index" style="background-image:url({{item.url}})" catchtap="previewImage" data-src="{{item.url}}"></view>
+        
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+  <!-- 近期下载 -->
+    <view class="wallpaper-index-block">
+      <view class="wallpaper-block-head">
+        <view class="wallpaper-block-headline">
+          <text class="title">近期下载</text>
+          <text class="subtitle"></text>
+        </view>
+        <view class="wallpaper-block-action">
+           <text class="link" catchtap="redirect" data-path="/pages/wallpaper/list/list" data-api="https://ztwp.ninefrost.com/api/wallpaper/list">全部壁纸</text>
+        </view>
+      </view>
+      <view class="wallpaper-index-block-main">
+        <scroll-view class="wallpaper-scroll-view" scrollX="{{true}}" scrollY="{{false}}" scroll-with-animation="{{true}}">
+            <view class="wallpaper-index-item" wx:for="{{dwallpapers}}" wx:key="index" style="background-image:url({{item.url}})" catchtap="previewImage" data-src="{{item.url}}"></view>
+        
+        </scroll-view>
+      </view>
+    </view>
+
+    <!-- 最新壁纸 -->
+    <view class="wallpaper-index-block">
+      <view class="wallpaper-block-head">
+        <view class="wallpaper-block-headline">
+          <text class="title">最新壁纸</text>
+          <text class="subtitle"></text>
+        </view>
+        <view class="wallpaper-block-action">
+          <text class="link" catchtap="redirect" data-path="/pages/wallpaper/list/list" data-api="https://ztwp.ninefrost.com/api/wallpaper/list">全部壁纸</text>
+        </view>
+      </view>
+      <view class="wallpaper-index-block-main">
+        <scroll-view class="wallpaper-scroll-view" scrollX="{{true}}" scrollY="{{false}}" scroll-with-animation="{{true}}">
+            <view class="wallpaper-index-item" wx:for="{{nwallpapers}}" wx:key="index" style="background-image:url({{item.url}})" catchtap="previewImage" data-src="{{item.url}}"></view>
+        
+        </scroll-view>
+      </view>
+    </view>
+    <!-- 分类壁纸 -->
+    <view class="wallpaper-index-block" wx:for="{{classifyList}}" wx:key="index" wx:for-item="block">
+      <view class="wallpaper-block-head">
+        <view class="wallpaper-block-headline">
+          <text class="title">{{block.name}}</text>
+          <text class="subtitle">/分类</text>
+        </view>
+        <view class="wallpaper-block-action">
+          <text class="link" catchtap="redirect" data-path="/pages/wallpaper/list/list" data-api="https://ztwp.ninefrost.com/api/classify/{{block.id}}/wallpaper/list">查看更多</text>
+        </view>
+      </view>
+      <view class="wallpaper-index-block-main">
+        <scroll-view class="wallpaper-scroll-view" scrollX="{{true}}" scrollY="{{false}}" scroll-with-animation="{{true}}">
+            <view class="wallpaper-index-item" wx:for="{{block.wallpapers}}" wx:key="index" style="background-image:url({{item.url}})" catchtap="previewImage" data-src="{{item.url}}"></view>
+        
+        </scroll-view>
+      </view>
+    </view>
+    <!--  -->
+    <view class="page-foot">
+      <view class="page-foot-end"></view>
+    </view>
+ 
+</view>

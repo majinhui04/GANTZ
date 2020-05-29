@@ -1,7 +1,8 @@
 {
   "enablePullDownRefresh": true,
  "navigationBarTitleText": "动态广场",
-"usingComponents": {
-  "posts": "/components/posts/posts"
-}
+  "usingComponents": {
+    "posts": "/components/posts/posts",
+    "sg-tab": "/components/tab/tab"
+  }
 }

@@ -19,7 +19,8 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		}
+		},
+		"useCompilerModule": false
 	},
 	"appid": "wx4b3748e405542df6",
 	"projectname": "GANTZ",

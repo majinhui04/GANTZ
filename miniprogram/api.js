@@ -1,6 +1,8 @@
 var config = require('./config');
 var util = require('./utils/util.js');
 var baseUrl = config.globalData.host + config.globalData.prefix;
+const {version} = config;
+const qs = require('./libs/qs/index.js');
 /**
  * 通用json请求
  * @param {string} options.meta.prefixUrl 假如传入了前缀(可以为空)则不使用baseUrl
@@ -12,7 +14,7 @@ function request(options = {}) {
     return new Promise(function (resolve, reject) {
         let token = wx.getStorageSync('token') || '';
         let {
-            data,
+            data = {},
             url = '',
             method = 'GET',
             meta = {},
@@ -27,7 +29,18 @@ function request(options = {}) {
                 title: '正在加载数据中.....',
             })
         }
-
+        
+        if(method.toUpperCase() === 'GET' && Object.keys(data).length) {
+          // let payload = qs.stringify(data);
+          
+          if(url.indexOf('?')>-1) {
+            url = url + '&' + qs.stringify(data);
+          }else {
+            url = url + '?' + qs.stringify(data);
+          }
+          data = {};
+        }
+        console.log(111111,'payload',url)
         //data.flush =true 表示强制刷新获取
         wx.request({
             data,
@@ -78,6 +91,31 @@ function request(options = {}) {
 }
 
 var API = {
+  syncSetting(options={}){
+    return request({
+      data:{
+        version
+      },
+      meta:{
+        loading:true
+      },
+      url: '/v1/gantz/setting',
+      method:'get',
+      ...options
+    }).then(res => {
+      let data = res.data;
+      let content = data.content || {};
+      let setting = JSON.stringify(content);
+      wx.setStorageSync('setting', setting)
+      return content;
+
+    }).catch(err => {
+      wx.setStorageSync('setting', '{}')
+      console.log(err)
+      return Promise.reject(err);
+    })
+  },
+  // 更新用户头像
   updateUserAvatar(options = {}){
     return request({
       meta:{
@@ -95,6 +133,7 @@ var API = {
       return Promise.reject(err);
     })
   },
+  // 获取头像列表
   getAvatarList(options = {}){
     return request({
       url: '/v1/avatar/list',
@@ -123,6 +162,24 @@ var API = {
       console.log(err)
       return Promise.reject(err);
     })
+  },
+  // 获取随机壁纸 第三方
+  wallpaperDiscover(options={}){
+    let url = 'https://ztwp.ninefrost.com/api/home/page/discover';
+    return request({
+      url,
+      ...options
+    })
+
+  },
+  // 获取随机壁纸 第三方
+  wallpaperRecommend(options={}){
+    let url = 'https://ztwp.ninefrost.com/api/home/page/recommend';
+    return request({
+      url,
+      ...options
+    })
+
   },
   // 获取随机壁纸 第三方
   wallpaperRandomFetch(options={}){

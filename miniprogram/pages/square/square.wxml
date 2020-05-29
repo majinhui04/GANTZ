@@ -1,5 +1,14 @@
 <!--miniprogram/pages/square/square.wxml-->
-<posts class="post-wrapper" id="discover" bindshare="bindshare"></posts>
+<sg-tab id="tabs" layout="fixed" source="{{tabs}}" bindselected="bindselected"></sg-tab>
+<swiper circular="{{false}}" current="{{current}}" bindanimationfinish="handleChangeItem" class="square-swiper">
+  <swiper-item class="tab-content" wx:for="{{tabs}}" data-id="{{index}}" wx:key="index">
+    <posts class="post-wrapper" filter="{{item.filter}}" id="discover{{index}}" bindshare="bindshare"></posts>
+  </swiper-item>
+</swiper>
+<!-- <view hidden='{{current != index}}' wx:for="{{tabs}}" wx:key="index" class="tab-content">
+   <posts class="post-wrapper" filter="{{item.filter}}" id="discover{{index}}" bindshare="bindshare"></posts>
+</view> -->
+
 <!-- <view class="post-btn" catchtap="redirect" data-path="/pages/voice-post/voice-post">
   <image src="img/icon-post.png" class="post-btn-icon"></image>
 </view> -->

@@ -133,3 +133,63 @@
     width: 50%;
     min-height: 50px;
 }
+
+.snippet {
+    position: relative;
+    background: #fff;
+    padding: 2rem 5%;
+    margin: 1.5rem 0;
+    box-shadow: 0 0.4rem 0.8rem -0.1rem rgba(0,32,128,.1), 0 0 0 1px #f0f2f7;
+    border-radius: .25rem;
+}
+.stage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+    overflow: hidden;
+}
+.dot-flashing {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #9880ff;
+    color: #9880ff;
+    animation: dotFlashing 1s infinite linear alternate;
+    animation-delay: .5s
+}
+
+.dot-flashing::before,.dot-flashing::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #9880ff;
+    color: #9880ff
+}
+
+.dot-flashing::before {
+    left: -15px;
+    animation: dotFlashing 1s infinite alternate;
+    animation-delay: 0s
+}
+
+.dot-flashing::after {
+    left: 15px;
+    animation: dotFlashing 1s infinite alternate;
+    animation-delay: 1s
+}
+
+@keyframes dotFlashing {
+    0% {
+        background-color: #9880ff
+    }
+
+    100% {
+        background-color: #ebe6ff
+    }
+}

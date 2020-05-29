@@ -8,12 +8,22 @@
     }
   },
   "pages": [
+    
     "pages/square/square",
+    "pages/voice-chorus/voice-chorus",
+    "pages/voice-swiper/voice-swiper",
+    "pages/voice-post/voice-post",
+    
+    "pages/wallpaper/index/index",
+    "pages/wallpaper/list/list",
+    
+    
+    
+    "pages/wallpaper/wallpaper",
+    
     "pages/my/my",
     "pages/my-info/my-info",
     "pages/my-avatar/my-avatar",
-    
-    
     "pages/shortcut/shortcut",
     "pages/goodnight/goodnight",
     "pages/music/music",
@@ -21,13 +31,9 @@
     "pages/index/index",
     "pages/ai/search",
     "pages/result/list",
-    "pages/wallpaper/wallpaper",
     
-    "pages/voice-swiper/voice-swiper",
-    "pages/voice-chorus/voice-chorus",
+    
     "pages/works/qinghua/qinghua",
-    "pages/voice-post/voice-post",
-    "pages/voice/voice",
     "pages/login/login",
     "pages/discover/discover",
     "pages/demo/demo",

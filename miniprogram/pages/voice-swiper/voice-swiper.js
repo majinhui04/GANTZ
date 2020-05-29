@@ -114,7 +114,7 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-
+      this.syncSetting();
     },
 
     /**
@@ -158,8 +158,10 @@ Page({
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function () {
-      let {dataList,index} = this.data;
+  onShareAppMessage: function (options={}) {
+    console.log(1, options);
+    if (options.from == 'button') {
+      let { dataList, index } = this.data;
       let target = dataList[index];
       let postId = target.postId;
       console.log(target);
@@ -169,4 +171,6 @@ Page({
       }
       return ret
     }
+      
+  }
 })

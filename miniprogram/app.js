@@ -28,6 +28,7 @@ Date.prototype.Format = function (fmt) { //author: meizz
 }
 //app.js
 App({
+    
     recorderManager: wx.getRecorderManager(),
     utils,
     API,
@@ -37,7 +38,7 @@ App({
         if (!wx.cloud) {
             console.error('请使用 2.2.3 或以上的基础库以使用云能力')
         } else {
-          console.log(123456)
+        API.syncSetting();
             wx.cloud.init({
                 traceUser: true,
             });
@@ -47,6 +48,13 @@ App({
 
     },
     globalFn: {
+        syncSetting(){
+            let setting = wx.getStorageSync('setting');
+            setting = JSON.parse(setting)
+            this.setData({
+                setting:setting
+            })
+        },
         validateVoice(data) {
             return new Promise((resolve, reject) => {
                 let {
@@ -117,17 +125,34 @@ App({
             });
         },
         redirect(e) {
-            var path = e.currentTarget.dataset.path || e.currentTarget.dataset.url;
-            console.log('path', path)
+            let dataset = e.currentTarget.dataset;
+            let {api,path,url} = dataset;
+           
+            let uri = path || url;
+            if(api) {
+                uri = uri + '?api=' + encodeURIComponent(api)
+            }
+            console.log('dataset', uri)
             wx.navigateTo({
-                url: path
+                url: uri
             })
 
         },
         previewImage(e) {
-            var current = e.target.dataset.src;
-            var urls = e.target.dataset.urls || [current];
-            console.log(1, e.target.dataset)
+            var {dataset} = e.currentTarget;
+            var {urls,src} = dataset
+            var current = src;
+            console.log(src)
+            if(src.indexOf('w/500')>-1) {
+                current = src.replace('w/500','w/1080');
+                urls = [current];
+            } 
+            if(dataset.urls) {
+                urls = dataset.urls;
+            }else {
+                urls = [current];
+            }
+            
             wx.previewImage({
                 current: current,
                 urls: urls

@@ -1,4 +1,5 @@
-<view >
+<scroll-view scroll-top="{{0}}" bindscrolltolower="loadMoreItems" class="scroll-view" enableBackToTop="true" scrollWithAnimation="true" scrollY="{{true}}" lower-threshold="{{50}}">
+     
     <view class="feed-list">
         <view class="feed-item" wx:for="{{dataList}}" wx:key="index" data-id="{{item._id}}" >
             <view class="feed-item-head sg-flexbox align-center sg-mb-12">
@@ -10,6 +11,7 @@
             </view>
             <view class="feed-item-main">
                 <view class="feed-excerpt sg-mb-12 sg-font-14">{{item.text}}</view>
+                <!-- 唱一句 -->
                 <block wx:if="{{item.type===3}}">
                   <view class="sg-flexbox align-center">
                     <voice-card wx:key="{{item.postId}}" body="{{item}}" layout="mini" bindplay="handleOnPlay" ></voice-card>
@@ -20,6 +22,7 @@
                   </view>
                   
                 </block>
+                <!-- 合唱 -->
                 <block wx:elif="{{item.type===9}}">
                   <view class="sg-flexbox align-center">
                     <voice-card wx:key="{{item.postId}}" body="{{item}}" layout="mini" bindplay="handleOnPlay" ></voice-card>
@@ -27,18 +30,24 @@
                   </view>
                   
                 </block>
+                <!-- 自由唱 -->
                 <block wx:elif="{{item.voice}}">
                   <sg-voice wx:key="{{item.postId}}" url="{{item.voice}}" bindplay="handleOnPlay"   duration="{{item.voiceLen}}"></sg-voice>  
+                </block>
+                <!-- 诗歌朗读 -->
+                <block wx:elif="{{item.type==12 || item.type==11}}">
+                   <sg-voice wx:if="{{item.voiceDetail}}" url="{{item.voiceDetail.voiceFile.url}}" bindplay="handleOnPlay"  duration="{{item.voiceDetail.duration}}" style="margin-bottom:20rpx;display:block;"></sg-voice>
+                  <poem-card body="{{item}}" wx:if="{{item}}"></poem-card>
                 </block>
                 <view class="feed-tags sg-mb-12">
                     <!-- <view class="feed-tag">#salsa</view> -->
                 </view>
             </view>
             <view class="feed-item-foot sg-flexbox">
-                <view class="share-btn sg-flexbox align-center" catchtap="share" data-id="{{item.postId}}">
+                <!-- <view class="share-btn sg-flexbox align-center" catchtap="share" data-id="{{item.postId}}">
                   <image class="share-btn-icon" src="../../assets/img/icon/icon_share.png"></image>
                   <text class="share-btn-text sg-color-graylight">分享</text>
-                </view>
+                </view> -->
                 <view class="share">
                     <!-- <button open-type='share'>分享</button> -->
                     <!-- <view class="icon-share">转发</view> -->
@@ -46,4 +55,7 @@
             </view>
         </view>
     </view>
-</view>
+    <view class="stage">
+    <view class="dot-flashing"></view>
+  </view>
+</scroll-view>

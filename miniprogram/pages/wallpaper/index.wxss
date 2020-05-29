@@ -1,0 +1,131 @@
+/* wallpager */
+page {
+    background-color: #000;
+}
+.page-foot {
+    width: 90%;
+    margin: 0 auto;
+    padding: 60rpx 0;
+}
+.page-foot-end {
+    position: relative;
+    height: 40rpx;
+    line-height: 40rpx;
+}
+.page-foot-end::before {
+    content: 'END';
+    display: block;
+    position: absolute;
+    color:#666;
+    font-size: 28rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    z-index: 10;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 100rpx;
+    background: #000;
+    text-align: center;
+
+}
+.page-foot-end::after {
+    content: ' ';
+    display: block;
+    border-bottom: 1px solid rgba(102, 102, 102, .5);
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top:50%;
+    z-index: 1;
+}
+/* 首页 */
+.wallpaper-block {
+    margin-bottom: 20rpx;
+}
+.wallpaper-block-head {
+    padding:20rpx 20rpx;
+    display: flex;
+    align-items: center;
+}
+.wallpaper-block-headline {
+    flex:1;
+}
+.wallpaper-block-head .title {
+    color: #FFF;
+    font-size: 34rpx;
+    margin-right: 10rpx;
+}
+.wallpaper-block-head .subtitle {
+    color: #666666;
+    font-size: 28rpx;
+}
+.wallpaper-block-head .link {
+    font-size: 28rpx;
+    color: #ffe600;
+}
+.wallpaper-scroll-view {
+   width: 100%;
+    display: flex;
+    white-space: nowrap;
+    padding-left: 20rpx;
+    min-height: 400rpx;
+}
+.wallpaper-index-item {
+    display:inline-flex;
+    width: 290rpx;
+    height: 430rpx;
+    background-color: #333;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin-right: 20rpx;
+    border-radius: 20rpx;
+}
+/* 列表页 */
+.list-page {
+    padding-bottom: 100rpx;
+}
+.wallpaper-list {
+    padding-left: 1.866vw;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    text-align: left;
+    flex-wrap: wrap; 
+  }
+  .wallpaper-item {
+    background-color: #333;
+    width: 30.8444vw;
+    height: 54.5777vw;
+    margin-bottom: 1.866vw;
+    margin-bottom: calc(10% / 4);
+    margin-right: 1.866vw;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .list-page-foot {
+      position: fixed;
+      width: 100%;
+      left: 0;
+      z-index: 10;
+      bottom: 0;
+      background-color: #333;
+      
+      
+  }
+  .list-page-foot .pager {
+      color:#fff;
+      font-size: 28rpx;
+      display: flex;
+      align-items: center;
+      height: 100rpx;
+      padding: 0 30rpx;
+  }
+  .list-page-foot .center {
+    flex:1;
+    text-align: center;
+  }
+
+

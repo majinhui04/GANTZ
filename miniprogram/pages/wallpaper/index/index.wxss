@@ -1,0 +1,47 @@
+/* miniprogram/pages/wallpaper/wallpaper-index/wallpaper-index.wxss */
+@import "../index.wxss";
+
+.wrap1 {
+  display: flex;
+  align-items:center;
+  background-color: red;
+}
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: gray;
+  
+}
+
+.wrap {
+   display: flex;
+   font-size: 30px;
+}
+.item {
+  height: 100px;
+  flex:1;
+  background-color: gray
+}
+
+.bg1 {
+  background-color: #ffe600
+}
+.bg2 {
+  background-color: #00c2df
+}
+.bg3 {
+  background-color: #9545df
+}
+
+.wrap2 {
+  display: flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.title {
+  font-size: 30px;
+}
+.subtitle {
+  font-size: 12px;
+}

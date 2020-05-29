@@ -1,0 +1,25 @@
+/* components/poem-card/poem-card.wxss */
+.poem-card {
+  background-color: #f6f6f6;
+}
+.poem-card .cover-img {
+  display: block;
+}
+.poem {
+  border-left: 8rpx solid rgba(60, 62, 107, 1);
+  padding: 10rpx 20rpx;
+}
+.poem-title {
+  display: inline-block;
+  padding: 6rpx 10rpx;
+  background-color: rgba(60, 62, 107, 1);
+  color: #FFF;
+  font-size: 28rpx;
+  margin-bottom: 30rpx;
+
+}
+.poem-content {
+  color: #666;
+  font-size: 24rpx;
+  line-height: 1.8;
+}

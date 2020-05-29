@@ -25,6 +25,7 @@ var userInfo = {
 };
 var shareImgUrl = 'https://brain.des-club.com/static/img/share.jpg';
 var config = {
+    version:'1.0.0',
     shareImgUrl,
     defaultUrl,
     // 下面的地址配合云端 Demo 工作

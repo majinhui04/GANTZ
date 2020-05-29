@@ -1,0 +1,10 @@
+<!--components/tab/tab.wxml-->
+<view class="tabs {{layout}}">
+    <view class="voice-post-tabs sg-flexbox align-center ">
+        <view wx:for="{{source}}" wx:key="index" class="voice-post-tab {{current==index?'active':''}}" catchtap="handleChange" data-index="{{index}}">
+            <text class="voice-post-tab-text ">{{item.name}}</text>
+            <view class="voice-post-tab-line"></view>
+        </view>
+    </view>
+</view>
+ <view class="tabs-placeholder" wx:if="{{layout==='fixed'}}"></view>

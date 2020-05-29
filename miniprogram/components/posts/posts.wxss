@@ -1,7 +1,9 @@
 /* components/moments.wxss */
 @import "../../sharegood/index.wxss";
 
-
+.scroll-view {
+    height: 100%;
+}
 .feed-item {
     padding: 20rpx 15rpx;
     background-color: #FFF;

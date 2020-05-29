@@ -1,8 +1,8 @@
 <!-- miniprogram/pages/voice-swiper/voice-swiper.wxml -->
-<!-- <button class="share-voice-post-btn" catchtap="redirect" data-url="/pages/voice-post/voice-post">
+<button class="share-voice-post-btn" catchtap="redirect" data-url="/pages/voice-post/voice-post" wx:if="{{setting.open}}">
     <image class="share-voice-post-btn-icon" src="../../assets/img/voice/btn_2.png" mode="aspectFill" catchtap="redirect" data-url="/pages/voice-chorus/voice-chorus?postId={{item.postId}}"></image>
     <view class="share-voice-post-btn-text">我要领唱</view>
-</button> -->
+</button>
 <swiper vertical="{{true}}" circular="{{true}}" current="{{current}}" bindanimationfinish="handleChangeItem">
     <swiper-item data-id="item.postId" item-id="{{item.postId}}" class="" wx:for="{{dataList}}" wx:key="postId">
         <view class="voice-swiper-card">
@@ -16,14 +16,14 @@
             </view>
             <voice-card body="{{item}}" id="{{'card'+item.postId}}" bindplay="handleOnPlay" layout="rectangle"></voice-card>
             <view class="share-voice-card-btns sg-flexbox align-center">
-                <button class="share-voice-card-btn sg-flex-1" open-type="share">
+                <button class="share-voice-card-btn sg-flex-1" open-type="share" >
                     <image class="share-voice-card-btn-icon" src="../../assets/img/voice/btn_1.png" mode="aspectFill"></image>
                     <view class="share-voice-card-btn-text">转发朋友</view>
                 </button>
-                <!-- <view class="share-voice-card-btn sg-flex-1" wx:if="{{item.type==3}}">
+                <view class="share-voice-card-btn sg-flex-1" wx:if="{{item.type==3 && setting.open}}">
                     <image class="share-voice-card-btn-icon" src="../../assets/img/voice/btn_2.png" mode="aspectFill" catchtap="redirect" data-url="/pages/voice-chorus/voice-chorus?postId={{item.postId}}"></image>
                     <view class="share-voice-card-btn-text">我要接唱</view>
-                </view> -->
+                </view>
             </view>
         </view>
     </swiper-item>

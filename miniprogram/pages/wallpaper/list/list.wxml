@@ -1,0 +1,22 @@
+<!--miniprogram/pages/wallpaper/list/list.wxml-->
+<view class="list-page">
+  <!--  -->
+  <view class="wallpaper-list sg-flexbox wrap">
+    <view class="wallpaper-item" wx:for="{{content}}" wx:key="index" style="background-image:url({{item.url}})" catchtap="previewImage" data-src="{{item.$url}}" data-urls="{{urls}}">
+    </view>
+  </view>
+  <!--  -->
+  <view class="page-foot">
+    <view class="page-foot-end"></view>
+  </view>
+  <!--  -->
+  <view class="list-page-foot">
+    <view class="pager">
+      <view class="prev" catchtap="handlePrev">上一页</view>
+      <view class="center"><text>{{number+1}}</text><text>/</text><text>{{totalPages}}页</text></view>
+      <view class="next" catchtap="handleNext">下一页</view>
+    </view>
+  </view>
+</view>
+
+

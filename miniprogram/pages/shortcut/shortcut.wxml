@@ -33,7 +33,7 @@
       为你读诗
       <view class="icon-1"></view>
     </view>
-    <view class="shortcut-item x2" catchtap="redirect" data-url="/pages/wallpaper/wallpaper">
+    <view class="shortcut-item x2" catchtap="redirect" data-url="/pages/wallpaper/index/index">
       手机壁纸
       <view class="icon-1"></view>
     </view>

@@ -1,0 +1,14 @@
+<!--components/poem-card/poem-card.wxml-->
+<view class="poem-card">
+  <view class="cover" wx:if="{{card.cover}}">
+    <image class="cover-img" src="{{card.cover}}" style="width:100%" mode="widthFix" catchtap="previewImage" data-src="{{card.cover}}"></image>
+  </view>
+  <view class="poem">
+    <view class="poem-title">
+      <text class="poem-title-txt">{{card.title}}</text>
+    </view>
+    <view class="poem-content">
+      <text>{{card.content}}</text>
+    </view>
+  </view>
+</view>
